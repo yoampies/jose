@@ -1,17 +1,14 @@
 import React from "react";
 import home_therapy from "../assets/home_therapy.jpg";
+import { articles } from "../constants/index.js"
+import Navbar from "../components/Navbar.jsx";
+import Footer from "../components/Footer.jsx";
 
 const Home = () => {
   return (
     <div className="bg-blue-900 text-white min-h-screen flex flex-col items-center">
       {/* Header */}
-      <header className="w-full p-4 flex justify-center items-center">
-        <nav className="flex gap-12">
-          <a href="#" className="text-white">Nosotros</a>
-          <a href="#" className="text-white">Experiencia</a>
-          <a href="#" className="text-white">Contacto</a>
-        </nav>
-      </header>
+      <Navbar />
       
       {/* Hero Section */}
       <section className="flex items-center grid justify-items-center text-center p-10">
@@ -49,45 +46,48 @@ const Home = () => {
       <section className="mt-10 text-center max-w-4xl">
         <h2 className="text-2xl font-bold">Servicios</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-          <div className="bg-blue-700 p-4 rounded-lg">
-            <h3 className="text-lg font-bold">Psicoterapia Individual</h3>
-            <p>Sesiones personalizadas para tu bienestar.</p>
+          <div className="bg-blue-700 p-4 rounded-lg pb-8">
+            <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
+            <h3 className="text-lg font-bold">Psicoterapia</h3>
+            <p>Aprende a navegar la vida y sus inevitables sorpresas</p>
           </div>
-          <div className="bg-blue-700 p-4 rounded-lg">
-            <h3 className="text-lg font-bold">Terapia Familiar</h3>
-            <p>Fortalece los lazos familiares y mejora la comunicación.</p>
+          <div className="bg-blue-700 p-4 rounded-lg pb-8">
+            <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
+            <h3 className="text-lg font-bold">Constelaciones Familiares</h3>
+            <p>Libera patrones familiares y construye un futuro diferente</p>
           </div>
-          <div className="bg-blue-700 p-4 rounded-lg">
+          <div className="bg-blue-700 p-4 rounded-lg pb-8">
+            <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
             <h3 className="text-lg font-bold">Terapia de Pareja</h3>
-            <p>Mejora tu relación con herramientas efectivas.</p>
+            <p>Fortalece tu relación. Mejora la comunicación en pareja.</p>
           </div>
         </div>
       </section>
       
       {/* News Section */}
-      <section className="mt-10 max-w-4xl">
+      <section className="mt-10 max-w-4xl w-3/4 bg-[#06D6A0] p-4 rounded-lg text-blue-900">
         <h2 className="text-2xl font-bold text-center">Artículos</h2>
-        <div className="mt-4 space-y-4">
-          <div className="bg-green-400 p-4 rounded-lg text-black">
-            <h3 className="text-lg font-bold">Ejemplo de artículo 1</h3>
-            <p>Descripción breve del artículo.</p>
-          </div>
-          <div className="bg-green-400 p-4 rounded-lg text-black">
-            <h3 className="text-lg font-bold">Ejemplo de artículo 2</h3>
-            <p>Descripción breve del artículo.</p>
-          </div>
-          <div className="bg-green-400 p-4 rounded-lg text-black">
-            <h3 className="text-lg font-bold">Ejemplo de artículo 3</h3>
-            <p>Descripción breve del artículo.</p>
-          </div>
+        <div className="mt-4 mb-4 ml-20 space-y-6 text-blue-900">
+          {
+            articles.map((item) => (
+            <div key={item.id}>
+              <div className="flex">
+                <img src={item.img} className="rounded-md w-20 h-20 object-cover" />
+                <div className="flex flex-col ml-6">
+                  <p className="font-semibold">{item.title}</p>
+                  <p className="font-semmilight">{item.author} - {item.date}</p>
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            </div>
+            ))
+          }
         </div>
       </section>
       
       {/* Footer */}
-      <footer className="mt-10 p-4 bg-blue-800 w-full text-center">
-        <p>Contacto: contacto@email.com</p>
-        <p>@joseampiés</p>
-      </footer>
+      <Footer />
+
     </div>
   );
 };
