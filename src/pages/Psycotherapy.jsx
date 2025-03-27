@@ -1,22 +1,31 @@
 import React from "react";
+import Navbar from "../components/Navbar";
 
 const Psycotherapy = () => {
   return (
     <section className="bg-gray-100">
+      {/* Navbar */}
+      <Navbar />
+
       {/* Hero Section */}
       <div className="relative w-full h-[400px] bg-cover bg-center flex flex-col items-center justify-center text-white text-center px-4" style={{ backgroundImage: "url('/path-to-your-image.jpg')" }}>
-        <h1 className="text-3xl font-bold">Psicoterapia</h1>
-        <p className="text-lg italic">Un espacio seguro para expresar tus sentimientos, donde descubrirás el camino hacia tu bienestar</p>
+        <h1 className="text-5xl">Psicoterapia</h1>
+        <p className="text-lg font-semibiold italic py-4">Un espacio seguro para expresar tus sentimientos,<br />donde descubrirás el camino hacia tu bienestar</p>
         <button className="mt-4 bg-blue-600 px-6 py-2 rounded-lg text-white font-semibold hover:bg-blue-700">Aprende más</button>
       </div>
 
       {/* ¿Qué es? Section */}
-      <div className="flex flex-wrap md:flex-nowrap bg-purple-700 text-white py-10 px-6 md:px-20 items-center">
+      <div className="flex flex-wrap md:flex-nowrap bg-[#823B76] text-white py-10 px-6 md:px-20 items-center grid grid-cols-2">
         <div className="md:w-1/2">
-          <div className="bg-red-500 p-6 rounded-full text-center w-3/4 mx-auto">
+          <div className="flex items-center text-center grid justify-items-center absolute z-10">
             <h2 className="text-xl font-bold">¿Qué es?</h2>
-            <p className="mt-2 text-sm">La psicoterapia es un viaje hacia el bienestar emocional. Es un espacio seguro y confidencial donde podrás hablar con un profesional de la salud mental...</p>
+            <p className="mt-2 text-sm">La psicoterapia es un viaje hacia el bienestar emocional. 
+              Es un espacio seguro y confidencial donde podrás hablar abiertamente con un profesional de la salud mental. 
+              A través de la conversación, aprenderás a identificar y comprender las causas de tus dificultades, desarrollarás 
+              herramientas para manejar situaciones difíciles y lograrás una mayor bienestar emocional.
+              ¿Estás listo para comenzar tu viaje hacia el bienestar?</p>
           </div>
+          <div className="bg-red-500 rounded-full w-96 h-96 mx-auto z-0"></div>
         </div>
         <div className="md:w-1/2">
           <img src="/path-to-your-image2.jpg" alt="Psicoterapia" className="rounded-full w-3/4 mx-auto" />

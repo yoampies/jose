@@ -78,7 +78,7 @@ const Home = () => {
                   <p className="font-semmilight">{item.author} - {item.date}</p>
                   <p>{item.description}</p>
                 </div>
-              </div>
+              </div>  
             </div>
             ))
           }
