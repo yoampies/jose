@@ -26,3 +26,30 @@ export const articles = [
         description: "Aprende a navegar la vida y sus inevitables sorpresas."
     }
 ];
+
+export const services = [
+    { 
+        title: "Terapia Individual", 
+        img: home_therapy 
+    },
+    { 
+        title: "Terapia Familiar", 
+        img: home_therapy 
+    },
+    {
+        title: "Terapia de Pareja", 
+        img: home_therapy 
+    },
+    { 
+        title: "Terapia de Niños", 
+        img: home_therapy 
+    },
+    { 
+        title: "Terapia de Adicciones", 
+        img: home_therapy 
+    },
+    { 
+        title: "Terapia Cognitiva y Conductual", 
+        img: home_therapy 
+    },
+]

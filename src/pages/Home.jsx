@@ -65,7 +65,7 @@ const Home = () => {
       </section>
       
       {/* News Section */}
-      <section className="mt-10 max-w-4xl w-3/4 bg-[#06D6A0] p-4 rounded-lg text-blue-900">
+      <section className="my-10 max-w-4xl w-3/4 bg-[#06D6A0] p-4 rounded-lg text-blue-900">
         <h2 className="text-2xl font-bold text-center">Artículos</h2>
         <div className="mt-4 mb-4 ml-20 space-y-6 text-blue-900">
           {

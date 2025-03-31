@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className="mt-10 py-6 px-24 bg-blue-800 w-full text-center flex justify-center gap-36">
+    <footer className="py-6 px-24 bg-blue-800 w-full text-center flex justify-center gap-36 text-white">
         <p><span className="font-semibold">Contacto:</span> <br />contacto@email.com</p>
-        <p><span className="font-semibold">Redes Sociales:</span> <br />@joseampiés</p>
+        <p><span className="font-semibold">Redes Sociales:</span> <br />@joseampies</p>
     </footer>
   )
 }
