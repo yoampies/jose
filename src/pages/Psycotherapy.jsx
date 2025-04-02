@@ -18,7 +18,7 @@ const Psycotherapy = () => {
       </div>
 
       {/* ¿Qué es? Section */}
-      <div className="flex flex-wrap md:flex-nowrap bg-[#823B76] text-white py-10 md:px-20 grid grid-cols-2">
+      <div className="flex flex-wrap md:flex-nowrap bg-[#823B76] text-white py-12 md:px-20 grid grid-cols-2">
         <div className="flex items-center justify-center relative mx-auto pl-36">
           <div className="text-center grid justify-items-center absolute z-10">
             <h2 className="text-2xl font-bold pb-4">¿Qué es?</h2>
