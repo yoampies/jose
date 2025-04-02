@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -17,10 +19,12 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-blue-700 p-6">
-      <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full">
+    <div className="bg-blue-800">
+    <Navbar />
+    <div className="flex items-center justify-center min-h-screen">
+      <div className="bg-white p-8 rounded-2xl shadow-lg w-3/4">
         <h2 className="text-2xl font-semibold text-gray-800 text-center mb-6">Contacto</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form onSubmit={handleSubmit} className="">
           <div>
             <label className="block text-gray-700 font-medium mb-1">Nombre y Apellido:</label>
             <input
@@ -61,6 +65,7 @@ export default function ContactForm() {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 }
