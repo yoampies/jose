@@ -11,7 +11,7 @@ export default function Constelations() {
       <Navbar />
 
       {/* Hero Section */}
-      <div className="relative bg-cover bg-center h-96 flex flex-col justify-center items-center text-white text-center px-4" style={{ backgroundImage: "url('/path-to-your-image.jpg')" }}>
+      <div className="h-screen relative bg-cover bg-center h-96 flex flex-col justify-center items-center text-white text-center px-4" style={{ backgroundImage: "url('/path-to-your-image.jpg')" }}>
         <h1 className="text-5xl">Constelaciones</h1>
         <p className="text-lg font-semibiold italic py-4">Explora tus raíces familiares, sana las heridas que te impiden avanzar y 
         <br />libera el potencial que reside en ti para vivir una vida plena y feliz.</p>
