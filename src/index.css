@@ -56,3 +56,64 @@
     opacity: .4;
     background-color: #D62839;
 }
+
+.circle1_contact {
+    position: absolute;
+    border-radius: 100%;
+    height: 1000px;
+    width: 1000px;
+    right: -200px;
+    top: -500px;
+    opacity: .7;
+    background-color: #06D6A0;
+}
+
+.circle2_contact {
+    position: absolute;
+    border-radius: 100%;
+    height: 1200px;
+    width: 1200px;
+    left: -400px;
+    top: -300px;
+    opacity: .85;
+    background-color: #FFD685;
+}
+
+.circle3_contact {
+    position: absolute;
+    border-radius: 100%;
+    height: 700px;
+    width: 700px;
+    right: -100px;
+    bottom: -400px;
+    opacity: .5;
+    background-color: #D62839;
+}
+
+.splatter1 {
+    position: absolute;
+    height: 700px;
+    width: 700px;
+    opacity: .85;
+    bottom: -50px;
+    left: -100px;
+    opacity: .7;
+}
+.splatter2 {
+    position: absolute;
+    height: 700px;
+    width: 700px;
+    opacity: .85;
+    top: -200px;
+    right: 50px;
+    opacity: .85;
+}
+.splatter3 {
+    position: absolute;
+    height: 700px;
+    width: 700px;
+    opacity: .85;
+    bottom: -200px;
+    right: -100px;
+    opacity: .85;
+}

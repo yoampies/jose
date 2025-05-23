@@ -3,6 +3,9 @@ import home_therapy from "../assets/home_therapy.jpg";
 import { articles } from "../constants/index.js"
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
+import splatter1 from "../assets/Splatter1.svg"
+import splatter2 from "../assets/Splatter2.svg"
+import splatter3 from "../assets/Splatter3.svg"
 
 const Home = () => {
   return (
@@ -11,13 +14,16 @@ const Home = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="flex items-center grid justify-items-center text-center p-10 h-screen">
-        <div className="absolute z-10">
+      <section className="relative flex items-center grid justify-items-center text-center w-full p-10 h-screen overflow-hidden">
+        <div className="absolute z-20">
           <h1 className="text-5xl font-light my-auto">José Ampíes</h1>
           <p className="text-lg pt-4 italic">Donde la terapia también es para gente sana que busca <span className="font-bold"> <br />crecer y evolucionar.</span></p>
           <button className="bg-[#FFD685] text-[#2E4FB2] font-semibold px-6 py-2 mt-8 rounded-lg">Aprende más</button>
         </div>
-        <div className="bottom-0 z-0 h-96 w-96 rounded-full bg-[#06D6A0] opacity-[.40]"></div>
+        <div className="bottom-0 z-10 h-96 w-96 rounded-full bg-[#06D6A0] opacity-[.40]"></div>
+        <img src={splatter1} className="splatter1 z-0"/>
+        <img src={splatter2} className="splatter2 z-0"/>
+        <img src={splatter3} className="splatter3 z-0"/>
       </section>
       
       {/* About Section */}
