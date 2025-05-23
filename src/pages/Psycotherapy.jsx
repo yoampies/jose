@@ -16,9 +16,9 @@ const Psycotherapy = () => {
         justify-center text-white text-center px-4 overflow-hidden">
         <img src={psycotherapy} className="absolute inset-0 w-full h-full object-cover z-0" />
         <div className="z-10">
-          <div className="circle3 rounded-full"></div>
-          <div className="circle2 rounded-full"></div>
-          <div className="circle1 rounded-full"></div>
+          <div className="circle3_psycotherapy rounded-full"></div>
+          <div className="circle2_psycotherapy rounded-full"></div>
+          <div className="circle1_psycotherapy rounded-full"></div>
         </div>
         <div className="relative z-20">
           <h1 className="text-5xl">Psicoterapia</h1>
