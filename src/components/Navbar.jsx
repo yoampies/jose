@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Navbar() {
   return (
-    <header className="w-full pt-4 px-4 flex justify-center items-center">
+    <header className="w-full pt-4 px-4 flex justify-center items-center absolute z-30">
         <nav className="flex gap-12">
             <a href="/" className="text-white">Inicio</a>
             <a href="/psicoterapia" className="text-white">Psicoterapia</a>

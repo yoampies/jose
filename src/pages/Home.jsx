@@ -11,7 +11,7 @@ const Home = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="flex items-center grid justify-items-center text-center p-10">
+      <section className="flex items-center grid justify-items-center text-center p-10 h-screen">
         <div className="absolute z-10">
           <h1 className="text-5xl font-light my-auto">José Ampíes</h1>
           <p className="text-lg pt-4 italic">Donde la terapia también es para gente sana que busca <span className="font-bold"> <br />crecer y evolucionar.</span></p>

@@ -2,19 +2,24 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import home_therapy from "../assets/home_therapy.jpg";
+import psycotherapy from "../assets/psycotherapy_home.jpg";
 import { services } from "../constants";
 
 const Psycotherapy = () => {
   return (
     <section className="bg-gray-100">
       {/* Navbar */}
-      <Navbar />
+      <Navbar/>
 
       {/* Hero Section */}
-      <div className="relative w-full h-[400px] bg-cover bg-center flex flex-col items-center justify-center text-white text-center px-4" style={{ backgroundImage: "url('/path-to-your-image.jpg')" }}>
-        <h1 className="text-5xl">Psicoterapia</h1>
-        <p className="text-lg font-semibiold italic py-4">Un espacio seguro para expresar tus sentimientos,<br />donde descubrirás el camino hacia tu bienestar</p>
-        <button className="mt-4 bg-blue-600 px-6 py-2 rounded-lg text-white font-semibold hover:bg-blue-700">Aprende más</button>
+      <div className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center 
+        text-white text-center px-4 relative">
+        <img src={psycotherapy} className="absolute inset-0 w-full h-full object-cover" />
+        <div className="relative z-20">
+          <h1 className="text-5xl">Psicoterapia</h1>
+          <p className="text-lg font-semibiold italic py-4">Un espacio seguro para expresar tus sentimientos,<br />donde descubrirás el camino hacia tu bienestar</p>
+          <button className="mt-4 bg-blue-600 px-6 py-2 rounded-lg text-white font-semibold hover:bg-blue-700">Aprende más</button>
+        </div>
       </div>
 
       {/* ¿Qué es? Section */}
