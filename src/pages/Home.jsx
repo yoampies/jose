@@ -31,7 +31,7 @@ const Home = () => {
         <img
           src={ home_therapy } 
           alt="Grupo en terapia"
-          className="w-full h-96 object-cover md:w-1/2"
+          className="w-[450px] h-[450px] object-cover md:w-1/2"
         />
         <div className="px-24 flex items-center text-center grid justify-items-center">
           <div className="absolute z-10">
@@ -44,50 +44,56 @@ const Home = () => {
             propósito en la vida, incluso en personas sin diagnósticos clínicos.
             </p>
           </div>
-          <div className="bottom-0 z-0 h-96 w-[450px] rounded-full bg-[#FFD685] opacity-[.85]"></div>
+          <div className="bottom-0 z-0 h-[450px] w-[450px] rounded-full bg-[#FFD685] opacity-[.85]"></div>
         </div>
       </section>
       
       {/* Services Section */}
-      <section className="mt-10 text-center max-w-4xl">
-        <h2 className="text-2xl font-bold">Servicios</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
-          <div className="bg-blue-700 p-4 rounded-lg pb-8">
-            <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
-            <h3 className="text-lg font-bold">Psicoterapia</h3>
-            <p>Aprende a navegar la vida y sus inevitables sorpresas</p>
-          </div>
-          <div className="bg-blue-700 p-4 rounded-lg pb-8">
-            <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
-            <h3 className="text-lg font-bold">Constelaciones Familiares</h3>
-            <p>Libera patrones familiares y construye un futuro diferente</p>
-          </div>
-          <div className="bg-blue-700 p-4 rounded-lg pb-8">
-            <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
-            <h3 className="text-lg font-bold">Terapia de Pareja</h3>
-            <p>Fortalece tu relación. Mejora la comunicación en pareja.</p>
+      <section className="py-10 text-center overflow-hidden relative ">
+        <div className="circle2_home_services rounded-full z-0"></div>
+        <div className="circle1_home_services rounded-full z-0"></div>
+        <div className="relative z-10 w-3/4 mx-auto">
+          <h2 className="text-2xl font-bold">Servicios</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+            <div className="bg-blue-700 p-4 rounded-lg">
+              <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
+              <h3 className="text-lg font-bold">Psicoterapia</h3>
+              <p>Aprende a navegar la vida y sus inevitables sorpresas</p>
+            </div>
+            <div className="bg-blue-700 p-4 rounded-lg">
+              <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
+              <h3 className="text-lg font-bold">Constelaciones Familiares</h3>
+              <p>Libera patrones familiares y construye un futuro diferente</p>
+            </div>
+            <div className="bg-blue-700 p-4 rounded-lg">
+              <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
+              <h3 className="text-lg font-bold">Terapia de Pareja</h3>
+              <p>Fortalece tu relación. Mejora la comunicación en pareja.</p>
+            </div>
           </div>
         </div>
       </section>
       
       {/* News Section */}
-      <section className="my-10 max-w-4xl w-3/4 bg-[#06D6A0] p-4 rounded-lg text-blue-900">
-        <h2 className="text-2xl font-bold text-center">Artículos</h2>
-        <div className="mt-4 mb-4 ml-20 space-y-6 text-blue-900">
-          {
-            articles.map((item) => (
-            <div key={item.id}>
-              <div className="flex">
-                <img src={item.img} className="rounded-md w-20 h-20 object-cover" />
-                <div className="flex flex-col ml-6">
-                  <p className="font-semibold">{item.title}</p>
-                  <p className="font-semmilight">{item.author} - {item.date}</p>
-                  <p>{item.description}</p>
-                </div>
-              </div>  
-            </div>
-            ))
-          }
+      <section className="justify-center w-full flex bg-[#06D6A0] p-4 text-blue-900">
+        <div>
+          <h2 className="text-2xl font-bold text-center">Artículos</h2>
+          <div className="mt-4 mb-4 space-y-6 text-blue-900">
+            {
+              articles.map((item) => (
+              <div key={item.id}>
+                <div className="flex bg-[#A8D68E] p-8 rounded-lg items-center">
+                  <img src={item.img} className="rounded-md w-24 h-24 object-cover" />
+                  <div className="flex flex-col ml-6">
+                    <p className="font-semibold text-lg">{item.title}</p>
+                    <p className="font-semilight">{item.author} - {item.date}</p>
+                    <p className="text-lg">{item.description}</p>
+                  </div>
+                </div>  
+              </div>
+              ))
+            }
+          </div>
         </div>
       </section>
       
