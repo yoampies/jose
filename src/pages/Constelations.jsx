@@ -2,6 +2,11 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import constelations from "../assets/constelations_home.jpg";
+import constelations_wi from "../assets/constelations_wi.jpg";
+import constelations_money from "../assets/constelations_money.svg";
+import constelations_health from "../assets/constelations_health.svg";
+import constelations_relationship from "../assets/constelations_relationship.svg";
+import constelations_portrait from "../assets/constelations_portrait.svg";
 
 
 export default function Constelations() {
@@ -27,7 +32,7 @@ export default function Constelations() {
       </div>
       
       {/* ¿Qué es? */}
-      <div className="bg-[#FFC95E] py-12 px-6 md:px-20 flex flex-col md:flex-row items-center gap-8">
+      <div className="bg-[#FFC95E] md:px-20 flex flex-col md:flex-row items-center gap-8">
         <div className="w-full md:w-1/2">
           <h2 className="text-2xl font-bold text-blue-900">¿Qué es?</h2>
           <p className="mt-4 text-lg text-blue-900">
@@ -37,36 +42,42 @@ export default function Constelations() {
           </p>
         </div>
         <div className="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center">
-          <img src={constelations} alt="Constelaciones familiares" className="rounded-full" />
+          <img src={constelations_wi} alt="Constelaciones familiares" className="rounded-full object-fit w-96 h-96 my-6" />
         </div>
       </div>
       
       {/* Beneficios */}
-      <div className="bg-blue-800 py-12 px-6 text-white px-20">
-        <h2 className="text-2xl font-bold text-center">¿Cómo te pueden ayudar las constelaciones?</h2>
-        <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-blue-600 p-6 rounded-lg text-center">
-            <img src={constelations} alt="Problemas de Relación" className="rounded-full pt-2 pb-6" />
-            <h3 className="text-xl font-semibold">Problemas de relación</h3>
-            <p className="mt-2">Con tus parejas, padres, hermanos o hijos. Encuentra los patrones que las rigen.</p>
+      <div className="bg-blue-800 py-16 text-white px-20 relative overflow-hidden">
+        <div className='relative z-20'>
+          <h2 className="text-2xl font-bold text-center">¿Cómo te pueden ayudar las constelaciones?</h2>
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 ">
+            <div className="bg-blue-600 p-6 rounded-lg text-center">
+              <img src={constelations_relationship} alt="Problemas de Relación" className="rounded-full pt-2 pb-6 h-48 w-48 mx-auto" />
+              <h3 className="text-xl font-semibold">Problemas de relación</h3>
+              <p className="mt-2">Con tus parejas, padres, hermanos o hijos. Encuentra los patrones que las rigen.</p>
+            </div>
+            <div className="bg-blue-600 p-6 rounded-lg text-center">
+              <img src={constelations_health} alt="Problemas de Salud" className="rounded-full pt-2 pb-6 h-48 w-48 mx-auto" />
+              <h3 className="text-xl font-semibold">Problemas de salud</h3>
+              <p className="mt-2">Aunque no curan enfermedades, pueden ayudar a comprender el origen emocional.</p>
+            </div>
+            <div className="bg-blue-600 p-6 rounded-lg text-center">
+              <img src={constelations_money} alt="Problemas de Económicos" className="rounded-full pt-2 pb-6 h-48 w-48 mx-auto" />
+              <h3 className="text-xl font-semibold">Problemas económicos</h3>
+              <p className="mt-2">Dificultades para administrar el dinero, deudas, sensación de escasez, etc.</p>
+            </div>
           </div>
-          <div className="bg-blue-600 p-6 rounded-lg text-center">
-            <img src={constelations} alt="Problemas de Salud" className="rounded-full pt-2 pb-6" />
-            <h3 className="text-xl font-semibold">Problemas de salud</h3>
-            <p className="mt-2">Aunque no curan enfermedades, pueden ayudar a comprender el origen emocional.</p>
-          </div>
-          <div className="bg-blue-600 p-6 rounded-lg text-center">
-            <img src={constelations} alt="Problemas de Económicos" className="rounded-full pt-2 pb-6" />
-            <h3 className="text-xl font-semibold">Problemas económicos</h3>
-            <p className="mt-2">Dificultades para administrar el dinero, deudas, sensación de escasez, etc.</p>
-          </div>
+        </div>
+        <div className='z-10'>
+          <div className="circle2_constelations_benefits rounded-full"></div>
+          <div className="circle1_constelations_benefits rounded-full"></div>
         </div>
       </div>
       
       {/* Cómo funcionan */}
-      <div className="bg-[#823B76] py-12 px-6 md:px-20 flex flex-col md:flex-row items-center gap-8">
-        <div className="w-full md:w-1/2 mt-6 md:mt-0 flex justify-center">
-          <img src={constelations} alt="Constelaciones familiares" className="rounded-full" />
+      <div className="bg-[#823B76] px-6 md:px-20 flex flex-col md:flex-row items-center gap-x-8">
+        <div className="w-full md:w-1/2 md:mt-0 flex justify-center">
+          <img src={constelations_portrait} alt="Constelaciones familiares" className="p-16" />
         </div>
         <div className="w-full md:w-1/2">
           <h2 className="text-2xl font-bold text-white">¿Cómo funciona las constelaciones?</h2>

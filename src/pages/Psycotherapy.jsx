@@ -55,7 +55,7 @@ const Psycotherapy = () => {
         </div>
         <div className="relative z-20">
           <h2 className="text-2xl font-bold mb-6">Servicios</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-8 w-4/5 mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-8 px-16 mx-auto">
             {services.map((service, index) => (
               <div key={index} className="bg-yellow-400 p-2 rounded-lg flex flex-col items-center">
                 <img src={service.img} alt={service.title} className="h-28 mb-4" />
