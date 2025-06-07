@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import home_therapy from "../assets/home_therapy.jpg";
 import psycotherapy from "../assets/psycotherapy_home.jpg";
+import psycotherapy_what_is from "../assets/psychotherapy_wi.jpg";
 import { services } from "../constants";
 
 const Psycotherapy = () => {
@@ -41,26 +42,33 @@ const Psycotherapy = () => {
           <div className="bg-red-500 rounded-full w-[450px] h-[450px] mx-auto z-0"></div>
         </div>
         <div className="mx-auto pr-36">
-          <img src={home_therapy} alt="Psicoterapia" className="rounded-full h-[450px] w-[450px]"/>
+          <img src={psycotherapy_what_is} alt="Psicoterapia" className="rounded-full object-fit"/>
         </div>
       </div>
 
       {/* Servicios */}
-      <div className="bg-blue-800 text-white py-10 text-center">
-        <h2 className="text-2xl font-bold">Servicios</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mt-6 w-4/5 mx-auto">
-          {services.map((service, index) => (
-            <div key={index} className="bg-yellow-400 p-4 rounded-lg flex flex-col items-center">
-              <img src={service.img} alt={service.title} className="w-16 mb-2" />
-              <p className="text-sm font-semibold">{service.title}</p>
-            </div>
-          ))}
+      <div className="relative bg-blue-800 text-white py-10 text-center overflow-hidden">
+        <div className="z-10">
+          <div className="circle3_psychoservices rounded-full"></div>
+          <div className="circle2_psychoservices rounded-full"></div>
+          <div className="circle1_psychoservices rounded-full"></div>
+        </div>
+        <div className="relative z-20">
+          <h2 className="text-2xl font-bold mb-6">Servicios</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-8 w-4/5 mx-auto">
+            {services.map((service, index) => (
+              <div key={index} className="bg-yellow-400 p-2 rounded-lg flex flex-col items-center">
+                <img src={service.img} alt={service.title} className="h-28 mb-4" />
+                <p className="font-semibold">{service.title}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       {/* Contacto */}
       <div className="bg-green-400 py-10 px-6 text-center">
-        <h2 className="text-xl font-bold text-blue-900">¡Contáctame!</h2>
+        <h2 className="text-2xl font-bold text-blue-900">¡Contáctame!</h2>
         <div className="bg-blue-700 p-6 mt-4 rounded-lg w-3/5 mx-auto">
           <input type="text" placeholder="Nombre y Apellido" className="w-full p-2 my-4 rounded-lg" />
           <input type="email" placeholder="Correo electrónico" className="w-full p-2 mb-4 rounded-lg" />
