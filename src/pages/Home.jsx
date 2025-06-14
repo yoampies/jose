@@ -6,8 +6,16 @@ import Footer from "../components/Footer.jsx";
 import splatter1 from "../assets/Splatter1.svg"
 import splatter2 from "../assets/Splatter2.svg"
 import splatter3 from "../assets/Splatter3.svg"
+import gsap from "gsap";
+import { useRef, useEffect } from "react";
 
 const Home = () => {
+  const circleRef = useRef(null);
+  useEffect(() => {
+    const el = circleRef.current;
+    gsap.fromTo(el, {x: 0}, {x: 100, duration: 10})
+  }, [])
+
   return (
     <div className="bg-blue-900 text-white min-h-screen flex flex-col items-center">
       {/* Header */}
@@ -21,7 +29,7 @@ const Home = () => {
           <button className="bg-[#FFD685] text-[#2E4FB2] font-semibold px-6 py-2 mt-8 rounded-lg">Aprende más</button>
         </div>
         <div className="bottom-0 z-10 h-96 w-96 rounded-full bg-[#06D6A0] opacity-[.40]"></div>
-        <img src={splatter1} className="splatter1 z-0"/>
+        <img src={splatter1} className="splatter1 z-0" ref={circleRef}/>
         <img src={splatter2} className="splatter2 z-0"/>
         <img src={splatter3} className="splatter3 z-0"/>
       </section>

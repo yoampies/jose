@@ -8,7 +8,6 @@ import Psycotherapy from "./pages/Psycotherapy";
 import Constelations from "./pages/Constelations";
 import Contact from "./pages/Contact";
 
-
 function App() {
 
   return (
