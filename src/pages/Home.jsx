@@ -10,10 +10,22 @@ import gsap from "gsap";
 import { useRef, useEffect } from "react";
 
 const Home = () => {
-  const circleRef = useRef(null);
+  const splatter1Ref = useRef(null);
+  const splatter2Ref = useRef(null);
+  const splatter3Ref = useRef(null);
+  const mainCircleRef = useRef(null);
   useEffect(() => {
-    const el = circleRef.current;
-    gsap.fromTo(el, {x: 0}, {x: 100, duration: 10})
+    const sp1 = splatter1Ref.current;
+    gsap.fromTo(sp1, {x: -1000}, {x: 0, duration: 0.9})
+
+    const sp2 = splatter2Ref.current;
+    gsap.fromTo(sp2, {x: 1000}, {x: 0, duration: 0.5})
+
+    const sp3 = splatter3Ref.current;
+    gsap.fromTo(sp3, {x: 1000}, {x: 0, duration: 0.8})
+
+    const cir = mainCircleRef.current;
+    gsap.fromTo(cir, {opacity: 0}, {opacity: 0.4, duration: 1.7})
   }, [])
 
   return (
@@ -28,10 +40,10 @@ const Home = () => {
           <p className="text-lg pt-4 italic">Donde la terapia también es para gente sana que busca <span className="font-bold"> <br />crecer y evolucionar.</span></p>
           <button className="bg-[#FFD685] text-[#2E4FB2] font-semibold px-6 py-2 mt-8 rounded-lg">Aprende más</button>
         </div>
-        <div className="bottom-0 z-10 h-96 w-96 rounded-full bg-[#06D6A0] opacity-[.40]"></div>
-        <img src={splatter1} className="splatter1 z-0" ref={circleRef}/>
-        <img src={splatter2} className="splatter2 z-0"/>
-        <img src={splatter3} className="splatter3 z-0"/>
+        <div className="bottom-0 z-10 h-96 w-96 rounded-full bg-[#06D6A0] opacity-[.40]" ref={mainCircleRef}></div>
+        <img src={splatter1} className="splatter1 z-0" ref={splatter1Ref}/>
+        <img src={splatter2} className="splatter2 z-0" ref={splatter2Ref}/>
+        <img src={splatter3} className="splatter3 z-0" ref={splatter3Ref}/>
       </section>
       
       {/* About Section */}
