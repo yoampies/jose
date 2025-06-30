@@ -6,7 +6,6 @@ import child from "../assets/psicoterapia_recreo.svg";
 import addiction from "../assets/psicoterapia_dolor.svg";
 import behavior from "../assets/psicoterapia_decision.svg";
 
-
 export const articles = [
     {
         id: 1,
@@ -14,7 +13,7 @@ export const articles = [
         title: "El poder de la mente: Descubre cómo transformar tus emociones.",
         author: "José Ampíes",
         date: "02/05/2024",
-        description: "Aprende a navegar la vida y sus inevitables sorpresas."
+        description: "Aprende a navegar la vida y sus inevitables sorpresas.",
     },
     {
         id: 2,
@@ -22,7 +21,9 @@ export const articles = [
         title: "Sanando las raíces: Descubre cómo las dinámicas familiares influyen en tu vida.",
         author: "José Ampíes",
         date: "30/11/2020",
-        description: "Sana heridas del pasado con constelaciones familiares."
+        description: "Sana heridas del pasado con constelaciones familiares.",
+        ref: card4Ref
+
     },
     {
         id: 3,
@@ -30,7 +31,8 @@ export const articles = [
         title: "El poder de la mente: Descubre cómo transformar tus emociones.",
         author: "José Ampíes",
         date: "30/11/2020",
-        description: "Aprende a navegar la vida y sus inevitables sorpresas."
+        description: "Aprende a navegar la vida y sus inevitables sorpresas.",
+        ref: card4Ref
     }
 ];
 
