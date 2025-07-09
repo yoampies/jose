@@ -1,4 +1,3 @@
-import React, { use } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import psycotherapy from "../assets/psycotherapy_home.jpg";
@@ -46,25 +45,25 @@ const Psycotherapy = () => {
           const cir5 = circle5Ref.current;
           gsap.fromTo(cir5, {x: 1000}, {x: 0, duration: 1, scrollTrigger: {
             trigger: cir5,
-            start: "top bottom",
+            start: "bottom bottom",
           }})
 
           const cir6 = circle6Ref.current;
           gsap.fromTo(cir6, {x: 1000, y:-1000}, {x: 0, y:0, duration: 1, scrollTrigger: {
             trigger: cir6,
-            start: "top bottom",
+            start: "bottom bottom",
           }})
 
           const cir7 = circle7Ref.current;
-          gsap.fromTo(cir7, {y: -1000}, {y: 0, duration: 1, scrollTrigger: {
+          gsap.fromTo(cir7, {y: -1000}, {y: 0, duration: 3, scrollTrigger: {
             trigger: cir7,
-            start: "top bottom",
+            start: "bottom bottom",
           }})
 
           const serv = servRef.current;
           gsap.fromTo(serv, {y: -1000}, {y: 0, duration: 1, scrollTrigger: {
             trigger: serv,
-            start: "top bottom",
+            start: "bottom top",
           }})
 
         })
