@@ -22,7 +22,6 @@ export const articles = [
         author: "José Ampíes",
         date: "30/11/2020",
         description: "Sana heridas del pasado con constelaciones familiares.",
-        ref: card4Ref
 
     },
     {
@@ -32,7 +31,6 @@ export const articles = [
         author: "José Ampíes",
         date: "30/11/2020",
         description: "Aprende a navegar la vida y sus inevitables sorpresas.",
-        ref: card4Ref
     }
 ];
 

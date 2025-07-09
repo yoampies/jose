@@ -52,7 +52,7 @@ const Home = () => {
           }})
 
     const txt1 = text1Ref.current;
-    gsap.fromTo(txt1, {x: 1000}, {x: 0, duration: 1, scrollTrigger: {
+    gsap.fromTo(txt1, {x: 1000}, {x: 0, duration: 0.8, scrollTrigger: {
             trigger: txt1,   
             start: 'top bottom'  
           }})
@@ -165,7 +165,7 @@ const Home = () => {
       <section className="justify-center w-full flex bg-[#06D6A0] p-4 text-blue-900">
         <div>
           <h2 className="text-2xl font-bold text-center">Artículos</h2>
-          <div className="mt-4 mb-4 space-y-6 text-blue-900">
+          <div className="mt-4 mb-4 space-y-6 text-blue-900" ref={card4Ref}>
             {
               articles.map((item) => (
               <div key={item.id}>
