@@ -25,34 +25,35 @@ const Home = () => {
   const card2Ref = useRef(null);
   const card3Ref = useRef(null);
   const card4Ref = useRef(null);
+  const card5Ref = useRef(null);
 
   useEffect(() => {
     const sp1 = splatter1Ref.current;
-    gsap.fromTo(sp1, {x: -1000}, {x: 0, duration: 0.9})
+    gsap.fromTo(sp1, {opacity: 0}, {opacity: 1, duration: 1})
 
     const sp2 = splatter2Ref.current;
-    gsap.fromTo(sp2, {x: 1000}, {x: 0, duration: 0.5})
+    gsap.fromTo(sp2, {opacity: 0}, {opacity: 1, duration: 1})
 
     const sp3 = splatter3Ref.current;
-    gsap.fromTo(sp3, {x: 1000}, {x: 0, duration: 0.8})
+    gsap.fromTo(sp3, {opacity: 0}, {opacity: 1, duration: 1})
 
     const cir = mainCircleRef.current;
-    gsap.fromTo(cir, {opacity: 0}, {opacity: 0.39, duration: 1.7})
+    gsap.fromTo(cir, {y: -1000}, {y: 0, duration: 0.5})
 
     const cir1 = circle1Ref.current;
-    gsap.fromTo(cir1, {x: 1000}, {x: 0, duration: 0.8, scrollTrigger: {
+    gsap.fromTo(cir1, {x: 1000}, {x: 0, duration: 1, scrollTrigger: {
             trigger: cir1,
             start: 'top bottom',     
           }})
 
     const img1 = img1Ref.current;
-    gsap.fromTo(img1, {x: -1000}, {x: 0, duration: 0.8, scrollTrigger: {
+    gsap.fromTo(img1, {x: -1000}, {x: 0, duration: 1, scrollTrigger: {
             trigger: img1,
             start: 'top bottom',     
           }})
 
     const txt1 = text1Ref.current;
-    gsap.fromTo(txt1, {x: 1000}, {x: 0, duration: 0.8, scrollTrigger: {
+    gsap.fromTo(txt1, {x: 1000}, {x: 0, duration: 1, scrollTrigger: {
             trigger: txt1,   
             start: 'top bottom'  
           }})
@@ -66,7 +67,7 @@ const Home = () => {
     const cir3 = circle3Ref.current;
     gsap.fromTo(cir3, {x: 1000}, {x: 0, duration: 1.5, scrollTrigger: {
             trigger: cir3,
-            start: 'center bottom',     
+            start: 'top bottom',     
           }})
 
     const card1 = card1Ref.current;
@@ -92,6 +93,12 @@ const Home = () => {
             trigger: card4,
             start: 'center bottom',     
           }})
+
+    const card5 = card5Ref.current;
+    gsap.fromTo(card5, {x: 1500}, {x: 0, duration: 1, scrollTrigger: {
+            trigger: card5,
+            start: 'center bottom',     
+          }})
   }, [])
 
   return (
@@ -113,30 +120,32 @@ const Home = () => {
       </section>
       
       {/* About Section */}
-      <section className="flex flex-col md:flex-row bg-[#06D6A0] w-full text-black">
+      <section className="overflow-hidden flex flex-col md:flex-row bg-[#06D6A0] w-full text-black">
         <img
           src={ home_therapy } 
           alt="Grupo en terapia"
           className="w-[450px] h-[450px] object-cover md:w-1/2"
           ref={img1Ref}
         />
-        <div className="px-24 flex items-center text-center grid justify-items-center">
-          <div className="absolute z-10" ref={text1Ref}>
-            <h2 className="text-xl font-bold text-blue-900">¿Quién soy?</h2>
-            <p className="w-96 mt-4 text-blue-900">
-            Con más de 30 años de experiencia, he acompañado a personas en su camino hacia el crecimiento personal y 
-            el bienestar emocional. Mi práctica se centra en la <span className="font-bold">terapia Gestalt, constelaciones familiares y terapias de 
-            pareja</span>. Creo firmemente que <span className="font-bold">la terapia no es solo para quienes padecen enfermedades mentales</span>. La terapia 
-            potencia la resiliencia, mejora las relaciones, aumenta la autoestima y fomenta un mayor sentido de 
-            propósito en la vida, incluso en personas sin diagnósticos clínicos.
-            </p>
+        <div className="relative">
+          <div className="px-24 flex items-center text-center grid justify-items-center">
+            <div className="absolute z-10" ref={text1Ref}>
+              <h2 className="text-xl font-bold text-blue-900">¿Quién soy?</h2>
+              <p className="w-96 mt-4 text-blue-900">
+              Con más de 30 años de experiencia, he acompañado a personas en su camino hacia el crecimiento personal y 
+              el bienestar emocional. Mi práctica se centra en la <span className="font-bold">terapia Gestalt, constelaciones familiares y terapias de 
+              pareja</span>. Creo firmemente que <span className="font-bold">la terapia no es solo para quienes padecen enfermedades mentales</span>. La terapia 
+              potencia la resiliencia, mejora las relaciones, aumenta la autoestima y fomenta un mayor sentido de 
+              propósito en la vida, incluso en personas sin diagnósticos clínicos.
+              </p>
+            </div>
+            <div className="bottom-0 z-0 h-[450px] w-[450px] rounded-full bg-[#FFD685] opacity-[.85]" ref={circle1Ref}></div>
           </div>
-          <div className="bottom-0 z-0 h-[450px] w-[450px] rounded-full bg-[#FFD685] opacity-[.85]" ref={circle1Ref}></div>
         </div>
       </section>
       
       {/* Services Section */}
-      <section className="py-10 text-center overflow-hidden relative ">
+      <section className="py-10 text-center overflow-hidden relative">
         <div className="circle2_home_services rounded-full z-0" ref={circle2Ref}></div>
         <div className="circle1_home_services rounded-full z-0" ref={circle3Ref}></div>
         <div className="relative z-10 w-3/4 mx-auto">
@@ -162,10 +171,10 @@ const Home = () => {
       </section>
       
       {/* News Section */}
-      <section className="justify-center w-full flex bg-[#06D6A0] p-4 text-blue-900">
+      <section className="justify-center w-full flex bg-[#06D6A0] p-4 text-blue-900 overflow-hidden">
         <div>
           <h2 className="text-2xl font-bold text-center">Artículos</h2>
-          <div className="mt-4 mb-4 space-y-6 text-blue-900" ref={card4Ref}>
+          <div className="mt-4 mb-4 space-y-6 text-blue-900" ref={card5Ref}>
             {
               articles.map((item) => (
               <div key={item.id}>
