@@ -19,6 +19,7 @@ const Psycotherapy = () => {
   const circle6Ref = useRef(null);
   const circle7Ref = useRef(null);
   const servRef = useRef(null);
+  const contactRef = useRef(null);
 
   useEffect (() => {
           const cir1 = circle1Ref.current;
@@ -64,6 +65,12 @@ const Psycotherapy = () => {
           gsap.fromTo(serv, {y: -1000}, {y: 0, duration: 1, scrollTrigger: {
             trigger: serv,
             start: "bottom top",
+          }})
+
+          const contact = contactRef.current;
+          gsap.fromTo(contact, {x: 1200}, {x: 0, duration: 1, scrollTrigger: {
+            trigger: contact,
+            start: "top bottom",
           }})
 
         })
@@ -130,7 +137,7 @@ const Psycotherapy = () => {
       {/* Contacto */}
       <div className="bg-green-400 py-10 px-6 text-center">
         <h2 className="text-2xl font-bold text-blue-900">¡Contáctame!</h2>
-        <div className="bg-blue-700 p-6 mt-4 rounded-lg w-3/5 mx-auto">
+        <div className="bg-blue-700 p-6 mt-4 rounded-lg w-3/5 mx-auto" ref={contactRef}>
           <input type="text" placeholder="Nombre y Apellido" className="w-full p-2 my-4 rounded-lg" />
           <input type="email" placeholder="Correo electrónico" className="w-full p-2 mb-4 rounded-lg" />
           <textarea placeholder="¿Cuál es la razón de tu consulta?" className="w-full p-2 mb-4 rounded-lg"></textarea>
