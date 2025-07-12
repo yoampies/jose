@@ -135,7 +135,7 @@ const Psycotherapy = () => {
       </div>
 
       {/* Contacto */}
-      <div className="bg-green-400 py-10 px-6 text-center">
+      <div className="bg-green-400 py-10 px-6 text-center overflow-hidden">
         <h2 className="text-2xl font-bold text-blue-900">¡Contáctame!</h2>
         <div className="bg-blue-700 p-6 mt-4 rounded-lg w-3/5 mx-auto" ref={contactRef}>
           <input type="text" placeholder="Nombre y Apellido" className="w-full p-2 my-4 rounded-lg" />
