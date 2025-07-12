@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
 import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import contact from "../assets/contact_home.jpg"
 
+gsap.registerPlugin()
+
 export default function ContactForm() {
+  const contactRef = useRef(null);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const contact = contactRef.current
+    gsap.fromTo(contact, {y: 1000}, {y: 0, duration: 0.8})
+
+    const img = imgRef.current
+    gsap.fromTo(img, {x: -1000}, {x:0, duration: 0.8})
+  })
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,10 +40,10 @@ export default function ContactForm() {
         <div className="circle2_contact rounded-full z-0"></div>
         <div className="circle1_contact rounded-full z-0"></div>
 
-        <div className="z-10 mx-auto h-[450px] w-[450px]">
+        <div className="z-10 mx-auto h-[450px] w-[450px]" ref={imgRef}>
           <img src={contact} className="inset-0 w-full h-full object-cover rounded-full" />
         </div>
-        <div className="z-10">
+        <div className="z-10" ref={contactRef}>
           <div className="flex justify-center">
             <div className="bg-white p-8 rounded-2xl shadow-lg w-full mt-8 mr-16">
               <h2 className="text-2xl font-semibold text-gray-800 text-center mb-6">Contacto</h2>

@@ -152,7 +152,7 @@ export default function Constelations() {
       </div>
       
       {/* Cómo funcionan */}
-      <div className="bg-[#823B76] px-6 md:px-20 flex flex-col md:flex-row items-center gap-x-8">
+      <div className="bg-[#823B76] px-6 md:px-20 flex flex-col md:flex-row items-center gap-x-8 overflow-hidden">
         <div className="w-full md:w-1/2 md:mt-0 flex justify-center" ref={imgRef}>
           <img src={constelations_portrait} alt="Constelaciones familiares" className="px-16 py-10" />
         </div>
