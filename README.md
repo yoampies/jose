@@ -1,4 +1,4 @@
-# José Ampíes - Full Stack Portfolio
+# José Ampíes - Psycotherapy
 
 This is a modern portfolio web application for José Ampíes, a therapist specializing in Gestalt therapy, family constellations, and couples therapy. The site showcases services, articles, and contact information, providing a dynamic and engaging user experience. The mobile website is still being worked on.
 
