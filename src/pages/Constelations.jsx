@@ -10,9 +10,16 @@ import constelations_health from "../assets/constelations_health.svg";
 import constelations_relationship from "../assets/constelations_relationship.svg";
 import constelations_portrait from "../assets/constelations_portrait.svg";
 
+// Register the ScrollTrigger plugin with GSAP to enable scroll-based animations.
 gsap.registerPlugin(ScrollTrigger) 
 
+/**
+ * Renders the Constelaciones (Constellations) page with a variety of
+ * sections, each featuring a unique scroll-triggered animation.
+ * The animations are designed to create a smooth, modern user experience.
+ */
 export default function Constelations() {
+  // Create refs to access and animate specific DOM elements.
   const circle1Ref = useRef(null);
   const circle2Ref = useRef(null);
   const cirImgRef = useRef(null);
@@ -25,67 +32,88 @@ export default function Constelations() {
   const imgRef = useRef(null);
   const text2Ref = useRef(null);
 
+  // The useEffect hook runs after the component renders. It contains all the animation logic.
   useEffect(() => {
-    const cir1 = circle1Ref.current
-    gsap.fromTo(cir1, {x: -1000, y: -800}, {x: 0, y: 0, duration: 1})
+    // ----------------------
+    // Hero Section Animations
+    // ----------------------
+
+    // Animate the large circles in the hero section to create a dynamic background.
+    gsap.fromTo(circle1Ref.current, {x: -1000, y: -800, scale: 0}, {x: 0, y: 0, scale: 1, duration: 1.5, ease: "power3.out"});
+    gsap.fromTo(circle2Ref.current, {x: 1500, y: 1500, scale: 0}, {x: 0, y: 0, scale: 1, duration: 1.5, ease: "power3.out", delay: 0.2});
+
+    // ----------------------
+    // "¿Qué es?" Section Animations
+    // ----------------------
+
+    // Animate the text and image of the "What is it?" section on scroll.
+    // The animation is triggered when the section comes into view.
+    gsap.fromTo(textRef.current, 
+      {x: -200, opacity: 0}, 
+      {x: 0, opacity: 1, duration: 1, ease: "power2.out", scrollTrigger: {
+        trigger: textRef.current,
+        start: "top 80%", // Trigger when the top of the element is 80% down from the top of the viewport.
+        toggleActions: "play none none none"
+      }}
+    );
+    gsap.fromTo(cirImgRef.current, 
+      {x: 200, opacity: 0}, 
+      {x: 0, opacity: 1, duration: 1, ease: "power2.out", scrollTrigger: {
+        trigger: cirImgRef.current,
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }}
+    );
     
-    const cir2 = circle2Ref.current
-    gsap.fromTo(cir2, {x: 1500, y: 1500}, {x: 0, y: 0, duration: 1})
-    
-    const cirImg = cirImgRef.current
-    gsap.fromTo(cirImg, {x: 1200}, {x: 0, duration: 1, scrollTrigger: {
-      trigger: cirImg,
-      start: "top bottom"
-    }})
-    
-    const text = textRef.current
-    gsap.fromTo(text, {x: -1000}, {x: 0, duration: 1, scrollTrigger: {
-      trigger: text,
-      start: "top bottom"
-    }})
-    
-    const cir3 = circle3Ref.current
-    gsap.fromTo(cir3, {x: 1000, y: -500}, {x: 0, y: 0, duration: 1, scrollTrigger: {
-      trigger: cir3,
-      start: "top top"
-    }})
-    
-    const cir4 = circle4Ref.current
-    gsap.fromTo(cir4, {x: -1000}, {x: 0, duration: 1, scrollTrigger: {
-      trigger: cir4,
-      start: "top bottom"
-    }})
-    
-    const help1 = help1Ref.current
-    gsap.fromTo(help1, {x: -1000}, {x: 0, duration: 1.3, scrollTrigger: {
-      trigger: help1,
-      start: "top bottom"
-    }})
-    
-    const help2 = help2Ref.current
-    gsap.fromTo(help2, {x: -1000}, {x: 0, duration: 1.3, scrollTrigger: {
-      trigger: help2,
-      start: "top bottom"
-    }})
-    
-    const help3 = help3Ref.current
-    gsap.fromTo(help3, {x: 1200}, {x: 0, duration: 1.3, scrollTrigger: {
-      trigger: help3,
-      start: "top bottom"
-    }})
-    
-    const img = imgRef.current
-    gsap.fromTo(img, {opacity: 0}, {opacity: 1, duration: 2, scrollTrigger: {
-      trigger: img,
-      start: "top center"
-    }})
-    
-    const text2 = text2Ref.current
-    gsap.fromTo(text2, {x: 1000}, {x: 0, duration: 1, scrollTrigger: {
-      trigger: text2,
-      start: "top bottom"
-    }})
-  })
+    // ----------------------
+    // "Beneficios" Section Animations
+    // ----------------------
+
+    // Animate the background circles and the benefit cards.
+    gsap.fromTo(circle3Ref.current, {x: 1000, y: -500, scale: 0, opacity: 0}, {x: 0, y: 0, scale: 1, opacity: 1, duration: 1.5, ease: "power3.out", scrollTrigger: {
+      trigger: circle3Ref.current,
+      start: "top 80%",
+      toggleActions: "play none none none"
+    }});
+    gsap.fromTo(circle4Ref.current, {x: -1000, y: 500, scale: 0, opacity: 0}, {x: 0, y: 0, scale: 1, opacity: 1, duration: 1.5, ease: "power3.out", scrollTrigger: {
+      trigger: circle4Ref.current,
+      start: "top 80%",
+      toggleActions: "play none none none"
+    }});
+
+    // Stagger the animations of the three benefit cards for a smoother, more engaging effect.
+    gsap.fromTo([help1Ref.current, help2Ref.current, help3Ref.current], 
+      {y: 50, opacity: 0}, 
+      {y: 0, opacity: 1, duration: 0.8, stagger: 0.3, ease: "power2.out", scrollTrigger: {
+        trigger: help1Ref.current,
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }}
+    );
+
+    // ----------------------
+    // "Cómo funcionan" Section Animations
+    // ----------------------
+
+    // Animate the image and text of the final section.
+    gsap.fromTo(imgRef.current, 
+      {opacity: 0, scale: 0.8}, 
+      {opacity: 1, scale: 1, duration: 1.5, ease: "power2.out", scrollTrigger: {
+        trigger: imgRef.current,
+        start: "top 70%",
+        toggleActions: "play none none none"
+      }}
+    );
+    gsap.fromTo(text2Ref.current, 
+      {x: 200, opacity: 0}, 
+      {x: 0, opacity: 1, duration: 1, ease: "power2.out", scrollTrigger: {
+        trigger: text2Ref.current,
+        start: "top 80%",
+        toggleActions: "play none none none"
+      }}
+    );
+
+  }, []); // The empty dependency array ensures this effect runs only once after the initial render.
 
   return (
     <section className="bg-gray-100">
