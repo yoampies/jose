@@ -7,6 +7,9 @@ import Footer from "../components/Footer.jsx";
 import splatter1 from "../assets/Splatter1.svg";
 import splatter2 from "../assets/Splatter2.svg";
 import splatter3 from "../assets/Splatter3.svg";
+import psicoterapia from "../assets/servicio-psicoterapia.png"
+import familia from "../assets/servicio-familia.png"
+import pareja from "../assets/servicio-pareja.png"
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -194,17 +197,23 @@ const Home = () => {
           <h2 className="text-2xl font-bold">Servicios</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
             <div className="bg-blue-700 p-4 rounded-lg" ref={el => serviceCardsRef.current[0] = el}>
-              <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
+              <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]">
+                <img src={psicoterapia} />
+              </div>
               <h3 className="text-lg font-bold">Psicoterapia</h3>
               <p>Aprende a navegar la vida y sus inevitables sorpresas</p>
             </div>
             <div className="bg-blue-700 p-4 rounded-lg" ref={el => serviceCardsRef.current[1] = el}>
-              <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
+              <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]">
+                <img src={familia} />
+              </div>
               <h3 className="text-lg font-bold">Constelaciones Familiares</h3>
               <p>Libera patrones familiares y construye un futuro diferente</p>
             </div>
             <div className="bg-blue-700 p-4 rounded-lg" ref={el => serviceCardsRef.current[2] = el}>
-              <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]"></div>
+              <div className="bottom-0 z-0 h-28 w-28 mx-auto mb-8 mt-4 rounded-full bg-[#06D6A0]">
+                <img src={pareja} />
+              </div>
               <h3 className="text-lg font-bold">Terapia de Pareja</h3>
               <p>Fortalece tu relación. Mejora la comunicación en pareja.</p>
             </div>
