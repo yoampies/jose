@@ -1,89 +1,94 @@
-// src/pages/ContactForm.jsx
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, ChangeEvent, FormEvent } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Navbar from "../components/Navbar";
-import contact from "../assets/contact_home.jpg";
+import contactImg from "../assets/contact_home.jpg"; 
+import { IFormData } from "../types"; 
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ContactForm() {
-  const contactRef = useRef(null);
-  const imgRef = useRef(null);
-  const heroCirclesRef = useRef([]);
+const ContactForm: React.FC = () => {
+  const contactRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
   
-  const [formData, setFormData] = useState({
+  const heroCirclesRef = useRef<HTMLDivElement[]>([]);
+  
+  const [formData, setFormData] = useState<IFormData>({
     name: "",
     email: "",
     message: "",
   });
 
-  // Use a callback ref to handle adding elements to the array.
-  const addCircleRef = (el) => {
+  const addCircleRef = (el: HTMLDivElement | null) => {
     if (el && !heroCirclesRef.current.includes(el)) {
       heroCirclesRef.current.push(el);
     }
   };
 
   useEffect(() => {
-    // 1. Create a GSAP Context.
-    let ctx = gsap.context(() => {
-
-      // 2. All your GSAP animations go inside this callback function.
-      // They are now managed and will be reverted on cleanup.
+    const ctx = gsap.context(() => {
       const contactForm = contactRef.current;
       const img = imgRef.current;
       const circles = heroCirclesRef.current;
 
-      gsap.from(contactForm, {
-        y: 100,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-        delay: 0.2,
-      });
+      if (contactForm) {
+        gsap.from(contactForm, {
+          y: 100,
+          opacity: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          delay: 0.2,
+        });
+      }
 
-      gsap.from(img, {
-        x: -100,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power3.out",
-      });
+      if (img) {
+        gsap.from(img, {
+          x: -100,
+          opacity: 0,
+          duration: 1.2,
+          ease: "power3.out",
+        });
+      }
 
-      gsap.from(circles, {
-        opacity: 0,
-        scale: 0.5,
-        duration: 1.5,
-        ease: "back.out(1.7)",
-        stagger: 0.2,
-      });
+      if (circles.length > 0) {
+        gsap.from(circles, {
+          opacity: 0,
+          scale: 0.5,
+          duration: 1.5,
+          ease: "back.out(1.7)",
+          stagger: 0.2,
+        });
+      }
 
-    }, contactRef); // 3. The second parameter is an optional scope.
+    }, contactRef); 
 
-    // 4. Return a cleanup function that reverts the GSAP context.
     return () => ctx.revert();
   }, []);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Formulario enviado", formData);
+    console.log("Formulario enviado satisfactoriamente:", formData);
   };
 
   return (
     <div className="bg-blue-800 min-h-screen">
       <Navbar />
       <div className="relative grid grid-cols-1 md:grid-cols-2 h-screen place-content-center overflow-hidden">
-        {/* The ref assignment remains the same, using the callback function */}
         <div className="circle3_contact rounded-full z-0 circle-animation" ref={addCircleRef}></div>
         <div className="circle2_contact rounded-full z-0 circle-animation" ref={addCircleRef}></div>
         <div className="circle1_contact rounded-full z-0 circle-animation" ref={addCircleRef}></div>
 
         <div className="z-10 mx-auto h-[450px] w-[450px]" ref={imgRef}>
-          <img src={contact} className="inset-0 w-full h-full object-cover rounded-full" alt="Contact" />
+          <img 
+            src={contactImg} 
+            className="inset-0 w-full h-full object-cover rounded-full shadow-2xl" 
+            alt="José Ampíes - Contacto" 
+          />
         </div>
 
         <div className="z-10" ref={contactRef}>
@@ -98,7 +103,8 @@ export default function ContactForm() {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    placeholder="Tu nombre completo"
                     required
                   />
                 </div>
@@ -109,7 +115,8 @@ export default function ContactForm() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    placeholder="ejemplo@correo.com"
                     required
                   />
                 </div>
@@ -119,13 +126,15 @@ export default function ContactForm() {
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                    rows={4}
+                    placeholder="Escribe tu mensaje aquí..."
                     required
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700 transition"
+                  className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-colors duration-300 font-semibold shadow-md"
                 >
                   Enviar un mensaje
                 </button>
@@ -136,4 +145,6 @@ export default function ContactForm() {
       </div>
     </div>
   );
-}
+};
+
+export default ContactForm;

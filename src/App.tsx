@@ -1,3 +1,4 @@
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -8,21 +9,19 @@ import Psycotherapy from "./pages/Psycotherapy";
 import Constelations from "./pages/Constelations";
 import Contact from "./pages/Contact";
 
-function App() {
-
+const App: React.FC = () => {
   return (
     <div>
       <Router>
         <Routes>
-          <Route exact path="/" element={<Home />} />  
-          <Route exact path="/psicoterapia" element={<Psycotherapy />} />  
-          <Route exact path="/constelaciones" element={<Constelations />} />  
-          <Route exact path="/contacto" element={<Contact />} />  
+          <Route path="/" element={<Home />} />  
+          <Route path="/psicoterapia" element={<Psycotherapy />} />  
+          <Route path="/constelaciones" element={<Constelations />} />  
+          <Route path="/contacto" element={<Contact />} />  
         </Routes>
       </Router>
     </div>
-  )
-}
+  );
+};
 
-
-export default App
+export default App;

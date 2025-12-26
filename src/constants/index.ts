@@ -1,3 +1,4 @@
+import { IArticle, IService } from '../types';
 import home_therapy from '../assets/home_therapy.jpg';
 import individual from "../assets/psicoterapia_servicio-al-cliente.svg";
 import family from "../assets/psicoterapia_familia.svg";
@@ -6,7 +7,7 @@ import child from "../assets/psicoterapia_recreo.svg";
 import addiction from "../assets/psicoterapia_dolor.svg";
 import behavior from "../assets/psicoterapia_decision.svg";
 
-export const articles = [
+export const articles: IArticle[] = [
     {
         id: 1,
         img: home_therapy,
@@ -34,7 +35,7 @@ export const articles = [
     }
 ];
 
-export const services = [
+export const services: IService[] = [
     { 
         title: "Terapia Individual", 
         img: individual 
