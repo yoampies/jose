@@ -11,7 +11,10 @@ import { IService } from "../../shared/types/types";
 import { usePsycotherapyAnimations } from "./hooks/usePsycotherapyAnimations";
 
 const Psycotherapy: React.FC = () => {
+  const mainRef = useRef<HTMLElement>(null);
+
   const refs = {
+    scope: mainRef,
     circle1Ref: useRef<HTMLDivElement>(null),
     circle2Ref: useRef<HTMLDivElement>(null),
     circle3Ref: useRef<HTMLDivElement>(null),
@@ -27,9 +30,10 @@ const Psycotherapy: React.FC = () => {
   usePsycotherapyAnimations(refs);
 
   return (
-    <section className="bg-gray-100">
+    <section ref={mainRef} className="bg-gray-100">
       <Navbar />
 
+      {/* Hero Section */}
       <div className="relative w-full h-screen bg-cover bg-center flex flex-col items-center justify-center text-white text-center px-4 overflow-hidden">
         <img
           src={psycotherapyImg}
@@ -39,119 +43,126 @@ const Psycotherapy: React.FC = () => {
         />
         <div className="z-10">
           <div
-            className="circle3_psycotherapy rounded-full"
+            className="circle3_psycotherapy rounded-full blur-3xl opacity-0"
             ref={refs.circle3Ref}
-          ></div>
+          />
           <div
-            className="circle2_psycotherapy rounded-full"
+            className="circle2_psycotherapy rounded-full blur-3xl opacity-0"
             ref={refs.circle2Ref}
-          ></div>
+          />
           <div
-            className="circle1_psycotherapy rounded-full"
+            className="circle1_psycotherapy rounded-full blur-3xl opacity-0"
             ref={refs.circle1Ref}
-          ></div>
+          />
         </div>
         <div className="relative z-20">
-          <h1 className="text-5xl font-bold">Psicoterapia</h1>
+          <h1 className="text-5xl font-bold tracking-tight">Psicoterapia</h1>
           <p className="text-lg font-semibold italic py-4">
             Un espacio seguro para expresar tus sentimientos,
             <br />
             donde descubrirás el camino hacia tu bienestar
           </p>
-          <button className="mt-4 bg-blue-600 px-6 py-2 rounded-lg text-white font-semibold hover:bg-blue-700 transition-transform hover:scale-105">
+          <button className="mt-4 bg-blue-600 px-8 py-3 rounded-xl text-white font-bold hover:bg-blue-700 transition-all hover:scale-105 active:scale-95 shadow-lg">
             Aprende más
           </button>
         </div>
       </div>
 
-      <div className="overflow-hidden flex flex-wrap md:flex-nowrap bg-[#823B76] text-white py-12 md:px-20 grid grid-cols-2">
+      {/* ¿Qué es? Section */}
+      <div className="overflow-hidden flex flex-col md:flex-row bg-[#823B76] text-white py-16 md:px-20 items-center justify-center gap-12">
         <div
-          className="flex items-center justify-center relative mx-auto pl-36"
+          className="flex items-center justify-center relative w-full md:w-1/2"
           ref={refs.circle4Ref}
         >
-          <div className="text-center grid justify-items-center absolute z-10">
-            <h2 className="text-2xl font-bold pb-4">¿Qué es?</h2>
-            <p className="mt-2 px-8">
+          <div className="text-center z-10 px-8">
+            <h2 className="text-3xl font-bold pb-6">¿Qué es?</h2>
+            <p className="text-lg leading-relaxed">
               La psicoterapia es un viaje hacia el bienestar emocional. Es un
               espacio seguro y confidencial donde podrás hablar abiertamente con
               un profesional de la salud mental.
             </p>
           </div>
-          <div className="bg-red-500 rounded-full w-[450px] h-[450px] mx-auto z-0"></div>
+          <div className="bg-red-500/80 blur-3xl rounded-full w-80 h-80 md:w-[450px] md:h-[450px] absolute z-0 opacity-50" />
         </div>
-        <div className="mx-auto pr-36" ref={refs.img1Ref}>
+        <div className="w-full md:w-1/2 flex justify-center" ref={refs.img1Ref}>
           <img
             src={psycotherapyWhatIsImg}
             alt="Descripción Psicoterapia"
-            className="rounded-full object-cover w-96 h-96"
+            className="rounded-full object-cover w-72 h-72 md:w-96 md:h-96 shadow-2xl ring-8 ring-white/10"
             loading="lazy"
           />
         </div>
       </div>
 
-      <div className="relative bg-blue-800 text-white py-10 text-center overflow-hidden">
-        <div className="z-10">
+      {/* Servicios Section */}
+      <div className="relative bg-blue-800 text-white py-20 text-center overflow-hidden">
+        <div className="z-0">
           <div
-            className="circle3_psychoservices rounded-full"
+            className="circle3_psychoservices rounded-full blur-3xl opacity-0"
             ref={refs.circle5Ref}
-          ></div>
+          />
           <div
-            className="circle2_psychoservices rounded-full"
+            className="circle2_psychoservices rounded-full blur-3xl opacity-0"
             ref={refs.circle6Ref}
-          ></div>
+          />
           <div
-            className="circle1_psychoservices rounded-full"
+            className="circle1_psychoservices rounded-full blur-3xl opacity-0"
             ref={refs.circle7Ref}
-          ></div>
+          />
         </div>
-        <div className="relative z-20">
-          <h2 className="text-2xl font-bold mb-6">Servicios</h2>
+        <div className="relative z-10 container mx-auto">
+          <h2 className="text-3xl font-bold mb-12">Nuestros Servicios</h2>
           <div
-            className="grid grid-cols-2 md:grid-cols-3 gap-x-16 gap-y-8 px-16 mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-6"
             ref={refs.servRef}
           >
             {services.map((service: IService, index: number) => (
               <div
                 key={index}
-                className="bg-yellow-400 p-2 rounded-lg flex flex-col items-center shadow-md"
+                className="bg-yellow-400/95 backdrop-blur-sm p-6 rounded-2xl flex flex-col items-center shadow-xl hover:scale-105 transition-transform"
               >
                 <img
                   src={service.img}
                   alt={service.title}
-                  className="h-28 mb-4"
+                  className="h-24 mb-4 object-contain"
                   loading="lazy"
                 />
-                <p className="font-semibold text-blue-900">{service.title}</p>
+                <p className="font-bold text-xl text-blue-900">
+                  {service.title}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="bg-green-400 py-10 px-6 text-center overflow-hidden">
-        <h2 className="text-2xl font-bold text-blue-900">¡Contáctame!</h2>
+      {/* Formulario de Contacto Rápido */}
+      <div className="bg-green-400 py-20 px-6 text-center overflow-hidden">
+        <h2 className="text-3xl font-bold text-blue-900 mb-8">¡Contáctame!</h2>
         <div
-          className="bg-blue-700 p-6 mt-4 rounded-lg w-3/5 mx-auto shadow-lg"
+          className="bg-blue-700 p-8 rounded-3xl w-full max-w-2xl mx-auto shadow-2xl"
           ref={refs.contactRef}
         >
-          <input
-            type="text"
-            placeholder="Nombre y Apellido"
-            className="w-full p-2 my-4 rounded-lg text-black"
-          />
-          <input
-            type="email"
-            placeholder="Correo electrónico"
-            className="w-full p-2 mb-4 rounded-lg text-black"
-          />
-          <textarea
-            placeholder="Tu consulta..."
-            className="w-full p-2 mb-4 rounded-lg text-black"
-            rows={4}
-          />
-          <button className="bg-blue-800 px-6 py-2 text-white font-semibold rounded-lg hover:bg-blue-900 transition-colors">
-            Enviar mensaje
-          </button>
+          <div className="space-y-4">
+            <input
+              type="text"
+              placeholder="Nombre y Apellido"
+              className="w-full p-3 rounded-xl text-black focus:ring-2 focus:ring-blue-400 outline-none transition-all"
+            />
+            <input
+              type="email"
+              placeholder="Correo electrónico"
+              className="w-full p-3 rounded-xl text-black focus:ring-2 focus:ring-blue-400 outline-none transition-all"
+            />
+            <textarea
+              placeholder="Tu consulta..."
+              className="w-full p-3 rounded-xl text-black focus:ring-2 focus:ring-blue-400 outline-none transition-all"
+              rows={4}
+            />
+            <button className="bg-blue-800 w-full py-4 text-white font-bold rounded-xl hover:bg-blue-900 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg">
+              Enviar mensaje
+            </button>
+          </div>
         </div>
       </div>
 

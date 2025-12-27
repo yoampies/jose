@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 interface ConstelationsRefs {
+  scope: RefObject<HTMLElement | null>;
   circle1Ref: RefObject<HTMLDivElement | null>;
   circle2Ref: RefObject<HTMLDivElement | null>;
   cirImgRef: RefObject<HTMLDivElement | null>;
@@ -20,19 +21,33 @@ interface ConstelationsRefs {
 export const useConstelationsAnimations = (refs: ConstelationsRefs) => {
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Hero: Círculos de entrada
+      // Hero: Círculos desenfocados con entrada suave
       gsap.fromTo(
         refs.circle1Ref.current,
-        { x: -1000, y: -800, scale: 0 },
-        { x: 0, y: 0, scale: 1, duration: 1.5, ease: "power3.out" }
+        { x: -200, y: -200, opacity: 0, scale: 0.8 },
+        {
+          x: 0,
+          y: 0,
+          opacity: 0.4,
+          scale: 1,
+          duration: 1.5,
+          ease: "power3.out",
+        }
       );
       gsap.fromTo(
         refs.circle2Ref.current,
-        { x: 1500, y: 1500, scale: 0 },
-        { x: 0, y: 0, scale: 1, duration: 1.5, ease: "power3.out", delay: 0.2 }
+        { x: 200, y: 200, opacity: 0, scale: 0.8 },
+        {
+          x: 0,
+          y: 0,
+          opacity: 0.4,
+          scale: 1,
+          duration: 1.5,
+          ease: "power3.out",
+          delay: 0.2,
+        }
       );
 
-      // Sección "¿Qué es?"
       const setupScroll = (el: HTMLElement | null, x: number) => {
         if (el) {
           gsap.fromTo(
@@ -43,33 +58,31 @@ export const useConstelationsAnimations = (refs: ConstelationsRefs) => {
               opacity: 1,
               duration: 1,
               ease: "power2.out",
-              scrollTrigger: { trigger: el, start: "top 80%" },
+              scrollTrigger: {
+                trigger: el,
+                start: "top 85%",
+                toggleActions: "play none none reverse",
+              },
             }
           );
         }
       };
+
       setupScroll(refs.textRef.current, -200);
       setupScroll(refs.cirImgRef.current, 200);
 
-      // Sección Beneficios: Círculos y Tarjetas
-      [refs.circle3Ref, refs.circle4Ref].forEach((ref, i) => {
+      // Beneficios: Círculos desenfocados con ScrollTrigger (Estilo Home)
+      [refs.circle3Ref, refs.circle4Ref].forEach((ref) => {
         if (ref.current) {
           gsap.fromTo(
             ref.current,
+            { opacity: 0, scale: 0.5 },
             {
-              x: i === 0 ? 1000 : -1000,
-              y: i === 0 ? -500 : 500,
-              scale: 0,
-              opacity: 0,
-            },
-            {
-              x: 0,
-              y: 0,
-              scale: 1,
               opacity: 1,
+              scale: 1,
               duration: 1.5,
               ease: "power3.out",
-              scrollTrigger: { trigger: ref.current, start: "top 80%" },
+              scrollTrigger: { trigger: ref.current, start: "top 85%" },
             }
           );
         }
@@ -79,35 +92,32 @@ export const useConstelationsAnimations = (refs: ConstelationsRefs) => {
       if (cards.length > 0) {
         gsap.fromTo(
           cards,
-          { y: 50, opacity: 0 },
+          { y: 60, opacity: 0 },
           {
             y: 0,
             opacity: 1,
             duration: 0.8,
-            stagger: 0.3,
+            stagger: 0.2,
             ease: "power2.out",
             scrollTrigger: { trigger: cards[0], start: "top 80%" },
           }
         );
       }
 
-      // Sección "Cómo funcionan"
       if (refs.imgRef.current) {
         gsap.fromTo(
           refs.imgRef.current,
-          { opacity: 0, scale: 0.8 },
+          { opacity: 0, scale: 0.9 },
           {
             opacity: 1,
             scale: 1,
-            duration: 1.5,
-            ease: "power2.out",
-            scrollTrigger: { trigger: refs.imgRef.current, start: "top 70%" },
+            duration: 1.2,
+            scrollTrigger: { trigger: refs.imgRef.current, start: "top 75%" },
           }
         );
       }
       setupScroll(refs.text2Ref.current, 200);
-    });
-
+    }, refs.scope);
     return () => ctx.revert();
   }, [refs]);
 };

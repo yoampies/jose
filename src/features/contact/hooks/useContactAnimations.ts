@@ -1,21 +1,19 @@
+// src/features/contact/hooks/useContactAnimations.ts
 import { useEffect, RefObject } from "react";
 import gsap from "gsap";
 
-/**
- * Hook para gestionar las animaciones de la página de Contacto.
- * @param contactRef Referencia al contenedor del formulario (servirá de scope).
- * @param imgRef Referencia al contenedor de la imagen.
- * @param circlesRef Referencia al arreglo de círculos de fondo.
- */
-export const useContactAnimations = (
-  contactRef: RefObject<HTMLDivElement | null>,
-  imgRef: RefObject<HTMLDivElement | null>,
-  circlesRef: RefObject<HTMLDivElement[]>
-) => {
+interface ContactRefs {
+  scope: RefObject<HTMLElement | null>;
+  contactRef: RefObject<HTMLDivElement | null>;
+  imgRef: RefObject<HTMLDivElement | null>;
+  circlesRef: RefObject<HTMLDivElement[]>;
+}
+
+export const useContactAnimations = (refs: ContactRefs) => {
   useEffect(() => {
     const ctx = gsap.context(() => {
-      if (contactRef.current) {
-        gsap.from(contactRef.current, {
+      if (refs.contactRef.current) {
+        gsap.from(refs.contactRef.current, {
           y: 100,
           opacity: 0,
           duration: 1.2,
@@ -24,8 +22,8 @@ export const useContactAnimations = (
         });
       }
 
-      if (imgRef.current) {
-        gsap.from(imgRef.current, {
+      if (refs.imgRef.current) {
+        gsap.from(refs.imgRef.current, {
           x: -100,
           opacity: 0,
           duration: 1.2,
@@ -33,17 +31,24 @@ export const useContactAnimations = (
         });
       }
 
-      if (circlesRef.current.length > 0) {
-        gsap.from(circlesRef.current, {
-          opacity: 0,
-          scale: 0.5,
-          duration: 1.5,
-          ease: "back.out(1.7)",
-          stagger: 0.2,
-        });
+      if (refs.circlesRef.current.length > 0) {
+        gsap.fromTo(
+          refs.circlesRef.current,
+          {
+            opacity: 0,
+            scale: 0.8,
+          },
+          {
+            opacity: 0.4,
+            scale: 1,
+            duration: 1.8,
+            ease: "power2.out",
+            stagger: 0.2,
+          }
+        );
       }
-    }, contactRef);
+    }, refs.scope);
 
     return () => ctx.revert();
-  }, [contactRef, imgRef, circlesRef]);
+  }, [refs]);
 };

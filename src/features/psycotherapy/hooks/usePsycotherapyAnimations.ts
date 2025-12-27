@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 interface PsycotherapyRefs {
+  scope: RefObject<HTMLElement | null>;
   circle1Ref: RefObject<HTMLDivElement | null>;
   circle2Ref: RefObject<HTMLDivElement | null>;
   circle3Ref: RefObject<HTMLDivElement | null>;
@@ -21,40 +22,35 @@ interface PsycotherapyRefs {
 export const usePsycotherapyAnimations = (refs: PsycotherapyRefs) => {
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Animaciones de Hero (Entrada inicial)
-      if (refs.circle1Ref.current) {
-        gsap.fromTo(
-          refs.circle1Ref.current,
-          { x: -1000, opacity: 0 },
-          { x: 0, opacity: 0.6, duration: 1.5 }
-        );
-      }
-      if (refs.circle2Ref.current) {
-        gsap.fromTo(
-          refs.circle2Ref.current,
-          { y: -1000, opacity: 0 },
-          { y: 0, opacity: 0.6, duration: 1.5 }
-        );
-      }
-      if (refs.circle3Ref.current) {
-        gsap.fromTo(
-          refs.circle3Ref.current,
-          { x: 1000, opacity: 0 },
-          { x: 0, opacity: 0.6, duration: 1.5 }
-        );
-      }
+      const heroCircles = [
+        refs.circle1Ref.current,
+        refs.circle2Ref.current,
+        refs.circle3Ref.current,
+      ];
+      gsap.fromTo(
+        heroCircles,
+        { opacity: 0, scale: 0.8 },
+        {
+          opacity: 0.4,
+          scale: 1,
+          duration: 1.8,
+          stagger: 0.2,
+          ease: "power3.out",
+        }
+      );
 
-      // Sección "¿Qué es?" (ScrollTrigger)
       if (refs.circle4Ref.current) {
         gsap.fromTo(
           refs.circle4Ref.current,
-          { x: -1000 },
+          { x: -200, opacity: 0 },
           {
             x: 0,
-            duration: 1,
+            opacity: 1,
+            duration: 1.2,
             scrollTrigger: {
               trigger: refs.circle4Ref.current,
               start: "top bottom",
+              toggleActions: "play none none reverse",
             },
           }
         );
@@ -62,76 +58,69 @@ export const usePsycotherapyAnimations = (refs: PsycotherapyRefs) => {
       if (refs.img1Ref.current) {
         gsap.fromTo(
           refs.img1Ref.current,
-          { x: 1000 },
+          { x: 200, opacity: 0 },
           {
             x: 0,
-            duration: 1,
+            opacity: 1,
+            duration: 1.2,
             scrollTrigger: {
               trigger: refs.img1Ref.current,
               start: "top bottom",
+              toggleActions: "play none none reverse",
             },
           }
         );
       }
 
-      // Círculos de la Sección de Servicios
-      const circlesBottom = [
+      const serviceBgCircles = [
         refs.circle5Ref.current,
         refs.circle6Ref.current,
         refs.circle7Ref.current,
       ];
-      circlesBottom.forEach((circle, index) => {
-        if (circle) {
-          gsap.fromTo(
-            circle,
-            {
-              x: index === 1 ? 1000 : 0,
-              y: index === 1 ? -1000 : index === 2 ? -1000 : 0,
-              xPercent: index === 0 ? 100 : 0,
-            },
-            {
-              x: 0,
-              y: 0,
-              xPercent: 0,
-              duration: index === 2 ? 3 : 1,
-              scrollTrigger: { trigger: circle, start: "bottom bottom" },
-            }
-          );
+      gsap.fromTo(
+        serviceBgCircles,
+        { opacity: 0, scale: 0.5 },
+        {
+          opacity: 0.6,
+          scale: 1,
+          duration: 1.5,
+          stagger: 0.3,
+          scrollTrigger: {
+            trigger: refs.servRef.current,
+            start: "top 85%",
+          },
         }
-      });
+      );
 
-      // Contenido de Servicios
       if (refs.servRef.current) {
         gsap.fromTo(
           refs.servRef.current,
-          { y: -1000 },
+          { y: 50, opacity: 0 },
           {
             y: 0,
+            opacity: 1,
             duration: 1,
-            scrollTrigger: {
-              trigger: refs.servRef.current,
-              start: "bottom top",
-            },
+            scrollTrigger: { trigger: refs.servRef.current, start: "top 80%" },
           }
         );
       }
 
-      // Sección de Contacto
       if (refs.contactRef.current) {
         gsap.fromTo(
           refs.contactRef.current,
-          { x: 1200 },
+          { y: 50, opacity: 0 },
           {
-            x: 0,
+            y: 0,
+            opacity: 1,
             duration: 1,
             scrollTrigger: {
               trigger: refs.contactRef.current,
-              start: "top bottom",
+              start: "top 90%",
             },
           }
         );
       }
-    });
+    }, refs.scope);
 
     return () => ctx.revert();
   }, [refs]);
