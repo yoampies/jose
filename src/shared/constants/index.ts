@@ -1,5 +1,5 @@
 import { IArticle, IService } from "../../shared/types/types";
-import home_therapy from "../../assets/home_therapy.jpg";
+import home_therapy from "../../assets/home_therapy.webp";
 import individual from "../../assets/psicoterapia_servicio-al-cliente.svg";
 import family from "../../assets/psicoterapia_familia.svg";
 import couple from "../../assets/psicoterapia_pareja.svg";
