@@ -13,6 +13,7 @@ import Navbar from "../../shared/components/Navbar";
 import Footer from "../../shared/components/Footer";
 import { IArticle } from "../../shared/types/types";
 import { useHomeAnimations } from "./hooks/useHomeAnimations";
+import { Link } from "react-router-dom";
 
 const Home: React.FC = () => {
   // Definición de referencias tipadas
@@ -167,22 +168,28 @@ const Home: React.FC = () => {
           <h2 className="text-2xl font-bold text-center">Artículos</h2>
           <div className="mt-4 mb-4 space-y-6 text-blue-900">
             {articles.map((item: IArticle) => (
-              <div key={item.id} className="article-card">
-                <div className="flex bg-[#A8D68E] p-8 rounded-lg items-center">
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="rounded-md w-24 h-24 object-cover"
-                  />
-                  <div className="flex flex-col ml-6">
-                    <p className="font-semibold text-lg">{item.title}</p>
-                    <p className="font-semilight">
-                      {item.author} - {item.date}
-                    </p>
-                    <p className="text-lg">{item.description}</p>
+              <Link
+                key={item.id}
+                to={`/articulos/${item.id}`}
+                className="article-card block hover:scale-[1.02] transition-transform duration-300"
+              >
+                <div key={item.id} className="article-card">
+                  <div className="flex bg-[#A8D68E] p-8 rounded-lg items-center">
+                    <img
+                      src={item.img}
+                      alt={item.title}
+                      className="rounded-md w-24 h-24 object-cover"
+                    />
+                    <div className="flex flex-col ml-6">
+                      <p className="font-semibold text-lg">{item.title}</p>
+                      <p className="font-semilight">
+                        {item.author} - {item.date}
+                      </p>
+                      <p className="text-lg">{item.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
