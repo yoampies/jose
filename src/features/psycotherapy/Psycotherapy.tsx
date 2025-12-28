@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import Navbar from "../../shared/components/Navbar";
 import Footer from "../../shared/components/Footer";
+import SEO from "../../shared/components/SEO";
 
 import psycotherapyImg from "../../assets/psycotherapy_home.webp";
 import psycotherapyWhatIsImg from "../../assets/psychotherapy_wi.webp";
@@ -26,6 +27,11 @@ const Psycotherapy: React.FC = () => {
 
   return (
     <section ref={mainRef} className="bg-gray-100 min-h-screen">
+      <SEO
+        title="Psicoterapia"
+        description="Un espacio seguro para descubrir el camino hacia tu bienestar emocional."
+        image="/assets/psycotherapy_home.webp"
+      />
       <Navbar />
 
       {/* Hero Section */}

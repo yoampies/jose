@@ -1,6 +1,6 @@
-// src/App.tsx
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
 const Home = lazy(() => import("./features/home/Home"));
 const Psycotherapy = lazy(() => import("./features/psycotherapy/Psycotherapy"));
@@ -18,7 +18,9 @@ const PageLoader = () => (
 
 const App: React.FC = () => {
   return (
-    <div>
+    <HelmetProvider>
+      {" "}
+      {/* Envoltorio necesario para SEO dinámico */}
       <Router>
         <Suspense fallback={<PageLoader />}>
           <Routes>
@@ -30,7 +32,7 @@ const App: React.FC = () => {
           </Routes>
         </Suspense>
       </Router>
-    </div>
+    </HelmetProvider>
   );
 };
 

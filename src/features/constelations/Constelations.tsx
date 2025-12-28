@@ -2,6 +2,7 @@
 import React, { useRef } from "react";
 import Navbar from "../../shared/components/Navbar";
 import Footer from "../../shared/components/Footer";
+import SEO from "../../shared/components/SEO";
 
 import constelations from "../../assets/constelations_home.webp";
 import constelations_wi from "../../assets/constelations_wi.webp";
@@ -28,6 +29,11 @@ const Constelations: React.FC = () => {
 
   return (
     <section ref={mainRef} className="bg-gray-100 min-h-screen">
+      <SEO
+        title="Constelaciones Familiares"
+        description="Explora tus raíces familiares y libera tu potencial para una vida plena."
+        image="/assets/constelations_home.webp"
+      />
       <Navbar />
 
       {/* Hero Section */}

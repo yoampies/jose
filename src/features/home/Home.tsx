@@ -10,6 +10,7 @@ import pareja from "../../assets/servicio-pareja.webp";
 import { articles } from "../../shared/constants";
 import Navbar from "../../shared/components/Navbar";
 import Footer from "../../shared/components/Footer";
+import SEO from "../../shared/components/SEO";
 import { IArticle } from "../../shared/types/types";
 import { useHomeAnimations } from "./hooks/useHomeAnimations";
 
@@ -35,6 +36,11 @@ const Home: React.FC = () => {
       ref={mainRef}
       className="bg-blue-900 text-white min-h-screen flex flex-col items-center"
     >
+      <SEO
+        title="Inicio"
+        description="Psicoterapia Gestalt y Constelaciones Familiares para el crecimiento y evolución personal."
+        image="/assets/home_therapy.webp"
+      />
       <Navbar />
 
       {/* Hero Section - Sin Splatters, Orbes Gigantes */}

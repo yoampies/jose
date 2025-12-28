@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { articles } from "../../shared/constants";
 import Navbar from "../../shared/components/Navbar";
 import Footer from "../../shared/components/Footer";
+import SEO from "../../shared/components/SEO";
 
 const ArticleDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -38,6 +39,11 @@ const ArticleDetail: React.FC = () => {
 
   return (
     <div className="bg-blue-900 text-white min-h-screen flex flex-col">
+      <SEO
+        title="Inicio"
+        description="Psicoterapia Gestalt y Constelaciones Familiares para el crecimiento y evolución personal."
+        image="/assets/home_therapy.webp"
+      />
       <Navbar />
       <main
         ref={mainRef}
