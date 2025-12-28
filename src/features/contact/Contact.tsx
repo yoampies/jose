@@ -39,41 +39,39 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Formulario enviado satisfactoriamente:", formData);
+    console.log("Enviado:", formData);
   };
 
   return (
     <div ref={mainRef} className="bg-blue-800 min-h-screen">
       <Navbar />
-      <div className="relative grid grid-cols-1 md:grid-cols-2 h-screen place-content-center overflow-hidden">
-        {/* Decoración - Blurry Circles (Estilo Home) */}
+      <div className="relative grid grid-cols-1 md:grid-cols-2 h-screen place-content-center overflow-hidden px-4">
+        {/* Orbes Flashy */}
         <div
           ref={addCircleRef}
-          className="circle3_contact rounded-full z-0 blur-3xl opacity-0"
+          className="circle3_contact rounded-full blur-3xl opacity-0 z-0"
         />
         <div
           ref={addCircleRef}
-          className="circle2_contact rounded-full z-0 blur-3xl opacity-0"
+          className="circle2_contact rounded-full blur-3xl opacity-0 z-0"
         />
         <div
           ref={addCircleRef}
-          className="circle1_contact rounded-full z-0 blur-3xl opacity-0"
+          className="circle1_contact rounded-full blur-3xl opacity-0 z-0"
         />
 
-        {/* Imagen de Hero */}
         <div ref={imgRef} className="z-10 mx-auto h-[450px] w-[450px]">
           <img
             src={contactImg}
-            className="w-full h-full object-cover rounded-full shadow-2xl ring-8 ring-white/5"
-            alt="José Ampíes - Contacto Profesional"
+            className="w-full h-full object-cover rounded-full shadow-2xl"
+            alt="José Ampíes"
             loading="eager"
           />
         </div>
 
-        {/* Formulario de Contacto */}
-        <div ref={contactRef} className="z-10 px-4 md:px-0">
-          <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-2xl w-full max-w-md mt-8 md:mr-16 mx-auto">
-            <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
+        <div ref={contactRef} className="z-10">
+          <div className="bg-white/95 backdrop-blur-sm p-8 rounded-3xl shadow-2xl max-w-md mx-auto">
+            <h2 className="text-3xl font-bold text-gray-800 text-center mb-8">
               Contacto
             </h2>
             <form onSubmit={handleSubmit} noValidate>
@@ -83,8 +81,8 @@ const ContactForm: React.FC = () => {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                  placeholder="Nombre y Apellido"
+                  className="w-full p-4 rounded-xl text-black border border-gray-200"
+                  placeholder="Nombre completo"
                   required
                   aria-label="Nombre y Apellido"
                 />
@@ -95,8 +93,8 @@ const ContactForm: React.FC = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
-                  placeholder="Correo electrónico"
+                  className="w-full p-4 rounded-xl text-black border border-gray-200"
+                  placeholder="Correo"
                   required
                   aria-label="Correo electrónico"
                 />
@@ -106,18 +104,19 @@ const ContactForm: React.FC = () => {
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-xl text-black focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                  className="w-full p-4 rounded-xl text-black border border-gray-200"
                   rows={4}
                   placeholder="¿En qué puedo ayudarte?"
                   required
-                  aria-label="Razón de consulta"
+                  aria-label="Mensaje de consulta"
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-4 rounded-xl font-bold hover:bg-blue-700 transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+                className="w-full bg-blue-600 text-white py-4 rounded-xl font-bold shadow-lg hover:bg-blue-700"
+                aria-label="Enviar mensaje de contacto"
               >
-                Enviar un mensaje
+                Enviar mensaje
               </button>
             </form>
           </div>

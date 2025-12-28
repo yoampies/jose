@@ -2,13 +2,11 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 
-// Assets
 import home_therapy from "../../assets/home_therapy.webp";
 import psicoterapia from "../../assets/servicio-psicoterapia.webp";
 import familia from "../../assets/servicio-familia.webp";
 import pareja from "../../assets/servicio-pareja.webp";
 
-// Componentes y Tipos
 import { articles } from "../../shared/constants";
 import Navbar from "../../shared/components/Navbar";
 import Footer from "../../shared/components/Footer";
@@ -39,7 +37,7 @@ const Home: React.FC = () => {
     >
       <Navbar />
 
-      {/* Hero Section - Orbes Gigantes y Flashy */}
+      {/* Hero Section - Sin Splatters, Orbes Gigantes */}
       <section className="relative flex items-center justify-center text-center w-full h-screen overflow-hidden">
         <div className="absolute z-20 px-10">
           <h1 className="text-7xl font-bold tracking-tighter drop-shadow-2xl mb-4">
@@ -53,18 +51,21 @@ const Home: React.FC = () => {
               crecer y evolucionar.
             </span>
           </p>
-          <button className="bg-[#FFD685] text-[#2E4FB2] font-black px-10 py-4 mt-10 rounded-2xl transition-all hover:scale-110 hover:rotate-1 active:scale-95 shadow-[0_0_30px_rgba(255,214,133,0.4)]">
+          <button
+            className="bg-[#FFD685] text-[#2E4FB2] font-black px-10 py-4 mt-10 rounded-2xl transition-all hover:scale-110 active:scale-95 shadow-[0_0_30px_rgba(255,214,133,0.4)]"
+            aria-label="Más información sobre terapias"
+          >
             Aprende más
           </button>
         </div>
 
-        {/* Orbe Central Gigante */}
+        {/* Orbe Central Principal */}
         <div
           ref={refs.mainCircleRef}
           className="absolute z-10 h-[800px] w-[800px] rounded-full bg-[#06D6A0] opacity-[.45] blur-[150px]"
         />
 
-        {/* Orbes Atmosféricos Perimetrales (Súper Flashy) */}
+        {/* Orbes Atmosféricos Atmosféricos (Sustituyen splatters) */}
         <div
           ref={(el) => {
             refs.bgCirclesRef.current[0] = el;
@@ -90,7 +91,7 @@ const Home: React.FC = () => {
         <img
           ref={refs.img1Ref}
           src={home_therapy}
-          alt="Sesión de terapia"
+          alt="Grupo en terapia Gestalt"
           className="w-full h-[600px] object-cover md:w-1/2"
           loading="lazy"
         />
@@ -152,16 +153,16 @@ const Home: React.FC = () => {
             ].map((service, index) => (
               <div
                 key={service.title}
-                className="bg-blue-800/30 backdrop-blur-xl p-10 rounded-[2rem] border border-white/10 hover:bg-blue-800/50 transition-all hover:-translate-y-2 shadow-2xl group"
+                className="bg-blue-800/30 backdrop-blur-xl p-10 rounded-[2rem] border border-white/10 hover:bg-blue-800/50 transition-all shadow-2xl"
                 ref={(el) => {
                   refs.serviceCardsRef.current[index] = el;
                 }}
               >
-                <div className="h-40 w-40 mx-auto mb-8 rounded-full bg-white/5 flex items-center justify-center shadow-inner group-hover:bg-[#06D6A0]/20 transition-colors">
+                <div className="h-40 w-40 mx-auto mb-8 rounded-full bg-white/5 flex items-center justify-center">
                   <img
                     src={service.img}
-                    alt={service.title}
-                    className="w-24 h-24 object-contain group-hover:scale-110 transition-transform"
+                    alt={`Icono de ${service.title}`}
+                    className="w-24 h-24 object-contain"
                     loading="lazy"
                   />
                 </div>
@@ -184,9 +185,10 @@ const Home: React.FC = () => {
               <Link
                 key={item.id}
                 to={`/articulos/${item.id}`}
+                aria-label={`Leer más sobre ${item.title}`}
                 className="article-card block group"
               >
-                <div className="flex flex-col md:flex-row bg-white/95 backdrop-blur-md p-8 rounded-[2.5rem] items-center shadow-2xl transition-all group-hover:bg-white group-hover:-translate-y-1 border border-white/20">
+                <div className="flex flex-col md:flex-row bg-white/95 backdrop-blur-md p-8 rounded-[2.5rem] items-center shadow-2xl transition-all group-hover:bg-white border border-white/20">
                   <img
                     src={item.img}
                     alt={item.title}
@@ -194,13 +196,13 @@ const Home: React.FC = () => {
                     loading="lazy"
                   />
                   <div className="flex flex-col ml-0 md:ml-10 text-blue-900">
-                    <p className="font-black text-3xl group-hover:text-blue-700 transition-colors leading-none mb-3">
+                    <p className="font-black text-3xl group-hover:text-blue-700 transition-colors mb-3">
                       {item.title}
                     </p>
                     <p className="text-sm font-bold text-blue-400 mb-4 uppercase tracking-widest">
                       {item.author} • {item.date}
                     </p>
-                    <p className="text-gray-600 text-xl line-clamp-2 leading-relaxed">
+                    <p className="text-gray-600 text-xl line-clamp-2">
                       {item.description}
                     </p>
                   </div>

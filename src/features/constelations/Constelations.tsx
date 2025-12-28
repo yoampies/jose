@@ -3,27 +3,22 @@ import React, { useRef } from "react";
 import Navbar from "../../shared/components/Navbar";
 import Footer from "../../shared/components/Footer";
 
-// Assets
 import constelations from "../../assets/constelations_home.webp";
 import constelations_wi from "../../assets/constelations_wi.webp";
 import constelations_money from "../../assets/constelations_money.svg";
 import constelations_health from "../../assets/constelations_health.svg";
 import constelations_relationship from "../../assets/constelations_relationship.svg";
-import constelations_portrait from "../../assets/constelations_portrait.svg";
 
 import { useConstelationsAnimations } from "./hooks/useConstelationsAnimations";
 
 const Constelations: React.FC = () => {
   const mainRef = useRef<HTMLElement>(null);
-
   const refs = {
     scope: mainRef,
-    circle1Ref: useRef<HTMLDivElement>(null),
-    circle2Ref: useRef<HTMLDivElement>(null),
+    heroCircles: useRef<(HTMLDivElement | null)[]>([]),
     cirImgRef: useRef<HTMLDivElement>(null),
     textRef: useRef<HTMLDivElement>(null),
-    circle3Ref: useRef<HTMLDivElement>(null),
-    circle4Ref: useRef<HTMLDivElement>(null),
+    benefitCircles: useRef<(HTMLDivElement | null)[]>([]),
     helpCardsRef: useRef<(HTMLDivElement | null)[]>([]),
     imgRef: useRef<HTMLDivElement>(null),
     text2Ref: useRef<HTMLDivElement>(null),
@@ -32,7 +27,7 @@ const Constelations: React.FC = () => {
   useConstelationsAnimations(refs);
 
   return (
-    <section ref={mainRef} className="bg-gray-100">
+    <section ref={mainRef} className="bg-gray-100 min-h-screen">
       <Navbar />
 
       {/* Hero Section */}
@@ -40,39 +35,49 @@ const Constelations: React.FC = () => {
         <img
           src={constelations}
           className="absolute inset-0 w-full h-full object-cover z-0"
-          alt="Constelaciones familiares"
+          alt=""
           loading="eager"
         />
+
         <div className="z-10">
-          {/* Círculos con desenfoque profundo */}
           <div
-            ref={refs.circle2Ref}
-            className="circle2_constelations rounded-full blur-3xl opacity-0"
+            ref={(el) => {
+              refs.heroCircles.current[0] = el;
+            }}
+            className="absolute -right-40 -top-40 h-[800px] w-[800px] rounded-full bg-[#D62839] blur-[160px] opacity-0"
           />
           <div
-            ref={refs.circle1Ref}
-            className="circle1_constelations rounded-full blur-3xl opacity-0"
+            ref={(el) => {
+              refs.heroCircles.current[1] = el;
+            }}
+            className="absolute -left-40 -bottom-40 h-[700px] w-[700px] rounded-full bg-[#06D6A0] blur-[150px] opacity-0"
           />
         </div>
+
         <div className="relative z-20">
-          <h1 className="text-5xl font-bold tracking-tight">Constelaciones</h1>
-          <p className="text-lg font-semibold italic py-4">
-            Explora tus raíces familiares y libera tu potencial.
+          <h1 className="text-6xl font-black tracking-tighter drop-shadow-2xl">
+            Constelaciones
+          </h1>
+          <p className="text-2xl font-bold italic py-6 max-w-3xl">
+            Explora tus raíces familiares y libera tu potencial para una vida
+            plena.
           </p>
-          <button className="mt-4 bg-blue-600 px-8 py-3 rounded-lg text-white font-semibold hover:bg-blue-700 transition-all hover:scale-105 active:scale-95 shadow-lg">
+          <button
+            className="mt-4 bg-white text-blue-900 px-12 py-5 rounded-2xl font-black text-xl hover:bg-yellow-400 transition-all hover:scale-110 shadow-2xl"
+            aria-label="Información sobre constelaciones familiares"
+          >
             Aprende más
           </button>
         </div>
       </div>
 
       {/* ¿Qué es? */}
-      <div className="bg-[#FFC95E] md:px-20 py-16 flex flex-col md:flex-row items-center gap-8 overflow-hidden">
+      <div className="bg-[#FFC95E] md:px-20 py-24 flex flex-col md:flex-row items-center gap-16 overflow-hidden">
         <div className="w-full md:w-1/2" ref={refs.textRef}>
-          <h2 className="text-3xl font-bold text-blue-900">¿Qué es?</h2>
-          <p className="mt-6 text-lg text-blue-900 leading-relaxed">
-            Una herramienta terapéutica para explorar las dinámicas ocultas de
-            tu sistema familiar y comprender los patrones que influyen en tu
-            presente.
+          <h2 className="text-4xl font-bold text-blue-900 mb-8">¿Qué es?</h2>
+          <p className="text-xl text-blue-900 leading-relaxed">
+            Una herramienta terapéutica poderosa que te invita a explorar las
+            dinámicas ocultas de tu sistema familiar.
           </p>
         </div>
         <div
@@ -81,86 +86,69 @@ const Constelations: React.FC = () => {
         >
           <img
             src={constelations_wi}
-            alt="Terapia de constelaciones"
-            className="rounded-full object-cover w-80 h-80 md:w-96 md:h-96 shadow-2xl ring-8 ring-white/10"
+            alt="Terapia sistémica"
+            className="rounded-full object-cover w-80 h-80 md:w-[450px] md:h-[450px] shadow-2xl ring-[25px] ring-blue-900/5"
             loading="lazy"
           />
         </div>
       </div>
 
       {/* Beneficios */}
-      <div className="bg-blue-800 py-20 text-white px-6 md:px-20 relative overflow-hidden">
-        <div className="relative z-20">
-          <h2 className="text-3xl font-bold text-center mb-12">
+      <div className="bg-blue-900 py-32 text-white px-6 md:px-20 relative overflow-hidden">
+        <div className="z-10">
+          <div
+            ref={(el) => {
+              refs.benefitCircles.current[0] = el;
+            }}
+            className="absolute -right-60 h-[900px] w-[900px] rounded-full bg-[#FFD685] blur-[180px] opacity-0"
+          />
+          <div
+            ref={(el) => {
+              refs.benefitCircles.current[1] = el;
+            }}
+            className="absolute -left-60 h-[800px] w-[800px] rounded-full bg-[#06D6A0] blur-[160px] opacity-0"
+          />
+        </div>
+        <div className="relative z-20 max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold text-center mb-20 tracking-tight">
             ¿Cómo te pueden ayudar?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             {[
               {
-                title: "Problemas de relación",
+                title: "Relaciones",
                 img: constelations_relationship,
-                desc: "Parejas, padres e hijos.",
+                desc: "Sana el vínculo con padres e hijos.",
               },
               {
-                title: "Problemas de salud",
+                title: "Salud",
                 img: constelations_health,
-                desc: "Comprende el origen emocional.",
+                desc: "Comprende el mensaje de tu cuerpo.",
               },
               {
-                title: "Problemas económicos",
+                title: "Abundancia",
                 img: constelations_money,
-                desc: "Libera bloqueos con la abundancia.",
+                desc: "Libera bloqueos económicos.",
               },
             ].map((help, i) => (
               <div
                 key={help.title}
-                className="bg-blue-700/50 backdrop-blur-sm p-8 rounded-2xl text-center shadow-xl border border-white/10"
+                className="bg-white/5 backdrop-blur-2xl p-10 rounded-[3rem] text-center border border-white/10 shadow-2xl"
                 ref={(el) => {
                   refs.helpCardsRef.current[i] = el;
                 }}
               >
                 <img
                   src={help.img}
-                  alt={help.title}
-                  className="rounded-full mb-6 h-40 w-40 mx-auto object-contain bg-white/5 p-4"
+                  alt=""
+                  className="rounded-full mb-8 h-48 w-48 mx-auto bg-white/5 p-6"
                   loading="lazy"
                 />
-                <h3 className="text-xl font-bold mb-3">{help.title}</h3>
-                <p className="text-blue-100 text-sm">{help.desc}</p>
+                <h3 className="text-2xl font-bold mb-4">{help.title}</h3>
+                <p className="text-blue-100">{help.desc}</p>
               </div>
             ))}
           </div>
-        </div>
-        {/* Círculos decorativos de fondo con desenfoque */}
-        <div className="z-10">
-          <div
-            ref={refs.circle3Ref}
-            className="circle2_constelations_benefits rounded-full blur-2xl opacity-0"
-          />
-          <div
-            ref={refs.circle4Ref}
-            className="circle1_constelations_benefits rounded-full blur-2xl opacity-0"
-          />
-        </div>
-      </div>
-
-      {/* Cómo funcionan */}
-      <div className="bg-[#823B76] px-6 md:px-20 py-20 flex flex-col md:flex-row items-center gap-12 overflow-hidden text-white">
-        <div className="w-full md:w-1/2 flex justify-center" ref={refs.imgRef}>
-          <img
-            src={constelations_portrait}
-            alt="Proceso de constelación"
-            className="w-full max-w-md drop-shadow-2xl"
-            loading="lazy"
-          />
-        </div>
-        <div className="w-full md:w-1/2" ref={refs.text2Ref}>
-          <h2 className="text-3xl font-bold mb-6">¿Cómo funcionan?</h2>
-          <p className="text-lg leading-relaxed">
-            El proceso revela lealtades invisibles y traumas transgeneracionales
-            mediante la representación sistémica, permitiendo una liberación
-            emocional profunda y un nuevo orden familiar.
-          </p>
         </div>
       </div>
 
