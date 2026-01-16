@@ -14,6 +14,8 @@ import { useConstelationsAnimations } from "./hooks/useConstelationsAnimations";
 
 const Constelations: React.FC = () => {
   const mainRef = useRef<HTMLElement>(null);
+  const whatIsSectionRef = useRef<HTMLDivElement>(null); // Ref para scroll
+
   const refs = {
     scope: mainRef,
     heroCircles: useRef<(HTMLDivElement | null)[]>([]),
@@ -26,6 +28,10 @@ const Constelations: React.FC = () => {
   };
 
   useConstelationsAnimations(refs);
+
+  const scrollToWhatIs = () => {
+    whatIsSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section ref={mainRef} className="bg-gray-100 min-h-screen">
@@ -69,7 +75,8 @@ const Constelations: React.FC = () => {
             plena.
           </p>
           <button
-            className="mt-4 bg-white text-blue-900 px-12 py-5 rounded-2xl font-black text-xl hover:bg-yellow-400 transition-all hover:scale-110 shadow-2xl"
+            onClick={scrollToWhatIs} // Acción de scroll
+            className="mt-4 bg-white text-blue-900 px-12 py-5 rounded-2xl font-black text-xl hover:bg-yellow-400 transition-all hover:scale-110 shadow-2xl cursor-pointer"
             aria-label="Información sobre constelaciones familiares"
           >
             Aprende más
@@ -78,7 +85,10 @@ const Constelations: React.FC = () => {
       </div>
 
       {/* ¿Qué es? */}
-      <div className="bg-[#FFC95E] md:px-20 py-24 flex flex-col md:flex-row items-center gap-16 overflow-hidden">
+      <div
+        ref={whatIsSectionRef} // Target scroll
+        className="bg-[#FFC95E] md:px-20 py-24 flex flex-col md:flex-row items-center gap-16 overflow-hidden"
+      >
         <div className="w-full md:w-1/2" ref={refs.textRef}>
           <h2 className="text-4xl font-bold text-blue-900 mb-8">¿Qué es?</h2>
           <p className="text-xl text-blue-900 leading-relaxed">

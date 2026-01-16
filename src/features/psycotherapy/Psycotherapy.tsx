@@ -13,6 +13,8 @@ import { usePsycotherapyAnimations } from "./hooks/usePsycotherapyAnimations";
 
 const Psycotherapy: React.FC = () => {
   const mainRef = useRef<HTMLElement>(null);
+  const whatIsSectionRef = useRef<HTMLDivElement>(null); // Ref para el scroll target
+
   const refs = {
     scope: mainRef,
     heroCircles: useRef<(HTMLDivElement | null)[]>([]),
@@ -24,6 +26,10 @@ const Psycotherapy: React.FC = () => {
   };
 
   usePsycotherapyAnimations(refs);
+
+  const scrollToWhatIs = () => {
+    whatIsSectionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <section ref={mainRef} className="bg-gray-100 min-h-screen">
@@ -72,7 +78,8 @@ const Psycotherapy: React.FC = () => {
             el camino hacia tu bienestar.
           </p>
           <button
-            className="bg-blue-600 px-10 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all hover:scale-110 active:scale-95 shadow-xl"
+            onClick={scrollToWhatIs} // Acción de scroll
+            className="bg-blue-600 px-10 py-4 rounded-2xl font-bold hover:bg-blue-700 transition-all hover:scale-110 active:scale-95 shadow-xl cursor-pointer"
             aria-label="Más información sobre el proceso psicoterapéutico"
           >
             Aprende más
@@ -81,7 +88,10 @@ const Psycotherapy: React.FC = () => {
       </div>
 
       {/* ¿Qué es? Section */}
-      <div className="overflow-hidden flex flex-col md:flex-row bg-[#823B76] text-white py-24 md:px-20 items-center justify-center gap-16">
+      <div
+        ref={whatIsSectionRef} // Target del scroll
+        className="overflow-hidden flex flex-col md:flex-row bg-[#823B76] text-white py-24 md:px-20 items-center justify-center gap-16"
+      >
         <div
           className="flex items-center justify-center relative w-full md:w-1/2"
           ref={refs.circle4Ref}

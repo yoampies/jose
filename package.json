@@ -42,6 +42,12 @@
     "typescript-eslint": "^8.24.1",
     "vite": "^6.1.1"
   },
+  "overrides": {
+    "react-helmet-async": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
+  },
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint --fix",
