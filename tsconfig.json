@@ -5,15 +5,20 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
+    
+    /* Módulos & Resolución Modernos (Sustituyen las opciones obsoletas) */
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    
+    /* Strictness & JSX */
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "types": ["vite/client"]
   },

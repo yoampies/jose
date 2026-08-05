@@ -9,22 +9,25 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({ title, description, image, url }) => {
-  const siteName = "José Ampíes - Psicólogo";
+  const siteName = "José Ampíes - Psicoterapia & Constelaciones";
   const fullTitle = `${title} | ${siteName}`;
-  const defaultImage = "/j-icon.png"; // Imagen por defecto de tu carpeta public
+  const defaultImage = "/j-icon.png";
+  const currentUrl =
+    typeof window !== "undefined" ? window.location.href : url || "";
 
   return (
     <Helmet>
-      {/* Etiquetas Estándar */}
+      {/* Etiquetas Primarias */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       {/* Open Graph / Facebook / LinkedIn */}
       <meta property="og:type" content="website" />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={image || defaultImage} />
-      <meta property="og:url" content={url || window.location.href} />
+      <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content={siteName} />
 
       {/* Twitter */}
