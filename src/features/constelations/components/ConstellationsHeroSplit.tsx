@@ -58,7 +58,7 @@ export const ConstellationsHeroSplit: React.FC<ConstellationsHeroProps> = ({
               <span>&darr;</span>
             </button>
             <a
-              href="https://wa.me/584242033589?text=Hola%20Lic.%20Jos%C3%A9%20Amp%C3%ADes,%20deseo%20informaci%C3%B3n%20sobre%20Constelaciones%20Familiares"
+              //href="https://wa.me/584242033589?text=Hola%20Lic.%20Jos%C3%A9%20Amp%C3%ADes,%20deseo%20informaci%C3%B3n%20sobre%20Constelaciones%20Familiares"
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto min-h-[52px] px-8 py-3.5 rounded-full bg-white/10 text-white border border-white/15 font-mono text-xs font-bold uppercase tracking-wider hover:bg-white/20 transition-all flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-white"

@@ -97,7 +97,7 @@ const Navbar: React.FC = () => {
         {/* CTA Rápido (Desktop) */}
         <div className="hidden md:block">
           <a
-            href="https://wa.me/584242033589?text=Hola%20Lic.%20Jos%C3%A9%20Amp%C3%ADes,%20deseo%20agendar%20una%20consulta"
+            //href="https://wa.me/584242033589?text=Hola%20Lic.%20Jos%C3%A9%20Amp%C3%ADes,%20deseo%20agendar%20una%20consulta"
             target="_blank"
             rel="noopener noreferrer"
             className="min-h-[44px] px-5 py-2.5 rounded-full bg-[#FF0055] text-white font-mono text-xs font-bold uppercase tracking-wider hover:bg-[#FF9E00] hover:text-[#0B132B] transition-all duration-300 shadow-lg shadow-[#FF0055]/25 flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF0055]"
@@ -167,7 +167,7 @@ const Navbar: React.FC = () => {
         </nav>
         <div className="pt-6 border-t border-white/10 mt-auto">
           <a
-            href="https://wa.me/584242033589?text=Hola%20Lic.%20Jos%C3%A9%20Amp%C3%ADes,%20deseo%20agendar%20una%20consulta"
+            //href="https://wa.me/584242033589?text=Hola%20Lic.%20Jos%C3%A9%20Amp%C3%ADes,%20deseo%20agendar%20una%20consulta"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full min-h-[48px] py-3 rounded-full bg-[#FF0055] text-white font-mono text-xs font-bold uppercase tracking-wider flex items-center justify-center shadow-lg active:scale-95 transition-transform"

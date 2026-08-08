@@ -78,7 +78,7 @@ export const PsycotherapySplitShowcase: React.FC = () => {
 
               <div className="pt-4">
                 <a
-                  href={`https://wa.me/584242033589?text=Hola%20Lic.%20Jos%C3%A9%20Amp%C3%ADes,%20deseo%20agendar%20una%20consulta%20para%20${encodeURIComponent(item.title)}`}
+                  //href={`https://wa.me/584242033589?text=Hola%20Lic.%20Jos%C3%A9%20Amp%C3%ADes,%20deseo%20agendar%20una%20consulta%20para%20${encodeURIComponent(item.title)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#FF0055] hover:text-white transition-colors min-h-[44px]"

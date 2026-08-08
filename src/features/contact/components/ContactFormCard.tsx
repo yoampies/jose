@@ -55,10 +55,10 @@ export const ContactFormCard: React.FC = () => {
       setIsSubmitting(false);
       setIsSuccess(true);
       // Redirección directa a WhatsApp con payload estructurado
-      const waMessage = encodeURIComponent(
+      /*const waMessage = encodeURIComponent(
         `Hola Lic. José Ampíes,\nSoy ${formData.name}.\nConsulta sobre: ${formData.service}\nCorreo: ${formData.email}\nMensaje: ${formData.message}`
       );
-      window.open(`https://wa.me/584242033589?text=${waMessage}`, "_blank");
+      //window.open(`https://wa.me/584242033589?text=${waMessage}`, "_blank");*/
     }, 800);
   };
 

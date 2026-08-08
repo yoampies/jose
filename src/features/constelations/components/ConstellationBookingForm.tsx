@@ -33,10 +33,10 @@ export const ConstellationsBookingForm: React.FC = () => {
     }
 
     setErrors({});
-    const encodedText = encodeURIComponent(
+    /*const encodedText = encodeURIComponent(
       `Hola Lic. José Ampíes. Mi nombre es ${formData.fullName} (${formData.email}). Deseo agendar una sesión de Constelación Familiar sobre: ${formData.message}`
     );
-    window.open(`https://wa.me/584242033589?text=${encodedText}`, "_blank");
+    //window.open(`https://wa.me/584242033589?text=${encodedText}`, "_blank");*/
   };
 
   return (

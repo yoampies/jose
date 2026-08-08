@@ -79,7 +79,7 @@ export const SystemicBeneficiosShowcase: React.FC = () => {
             </div>
 
             <a
-              href={`https://wa.me/584242033589?text=Hola%20Lic.%20Jos%C3%A9%20Amp%C3%ADes,%20deseo%20constelar%20sobre%20${encodeURIComponent(benefit.title)}`}
+              //href={`https://wa.me/584242033589?text=Hola%20Lic.%20Jos%C3%A9%20Amp%C3%ADes,%20deseo%20constelar%20sobre%20${encodeURIComponent(benefit.title)}`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-8 pt-4 border-t border-white/10 text-xs font-mono font-bold uppercase tracking-wider text-white hover:text-[#FF9E00] flex items-center justify-between transition-colors min-h-[44px]"

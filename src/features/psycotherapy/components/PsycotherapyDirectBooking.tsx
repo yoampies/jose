@@ -33,10 +33,10 @@ export const PsycotherapyDirectBooking: React.FC = () => {
     }
 
     setErrors({});
-    const encodedText = encodeURIComponent(
+    /*const encodedText = encodeURIComponent(
       `Hola Lic. José Ampíes. Mi nombre es ${formData.fullName} (${formData.email}). Motivo de consulta psicoterapéutica: ${formData.message}`
     );
-    window.open(`https://wa.me/584242033589?text=${encodedText}`, "_blank");
+    //window.open(`https://wa.me/584242033589?text=${encodedText}`, "_blank");*/
   };
 
   return (
